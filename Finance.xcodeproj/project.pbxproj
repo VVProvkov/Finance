@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD6996B32763CA1100144B4B /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6996B22763CA1100144B4B /* AddTransactionView.swift */; };
 		DDE7C057275F3C4B00282299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C056275F3C4B00282299 /* AppDelegate.swift */; };
 		DDE7C059275F3C4B00282299 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C058275F3C4B00282299 /* SceneDelegate.swift */; };
-		DDE7C05B275F3C4B00282299 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C05A275F3C4B00282299 /* ViewController.swift */; };
-		DDE7C05E275F3C4B00282299 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE7C05C275F3C4B00282299 /* Main.storyboard */; };
 		DDE7C060275F3C4D00282299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE7C05F275F3C4D00282299 /* Assets.xcassets */; };
-		DDE7C063275F3C4D00282299 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE7C061275F3C4D00282299 /* LaunchScreen.storyboard */; };
+		DDE7C078275F408600282299 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C077275F408600282299 /* UIView+Ext.swift */; };
+		DDE7C080275F451300282299 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C07F275F451200282299 /* TransactionsViewController.swift */; };
+		DDE7C082275F452E00282299 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C081275F452E00282299 /* TabBarViewController.swift */; };
+		DDE7C084275F453500282299 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C083275F453500282299 /* AddTransactionViewController.swift */; };
+		DDE7C086275F453800282299 /* TransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C085275F453800282299 /* TransactionsTableViewCell.swift */; };
+		DDE7C088275F453D00282299 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C087275F453D00282299 /* AnalyticsViewController.swift */; };
+		DDE7C08A275F453F00282299 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C089275F453F00282299 /* Transaction.swift */; };
+		DDE7C0DA275FF55E00282299 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C0D9275FF55E00282299 /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD6996B22763CA1100144B4B /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 		DDE7C053275F3C4B00282299 /* Finance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE7C056275F3C4B00282299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDE7C058275F3C4B00282299 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDE7C05A275F3C4B00282299 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DDE7C05D275F3C4B00282299 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDE7C05F275F3C4D00282299 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DDE7C062275F3C4D00282299 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDE7C064275F3C4D00282299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE7C077275F408600282299 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		DDE7C07F275F451200282299 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		DDE7C081275F452E00282299 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		DDE7C083275F453500282299 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		DDE7C085275F453800282299 /* TransactionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewCell.swift; sourceTree = "<group>"; };
+		DDE7C087275F453D00282299 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		DDE7C089275F453F00282299 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		DDE7C0D9275FF55E00282299 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +49,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD6996B427650A8300144B4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD6996B927650B1E00144B4B /* AnalyticsScreen */,
+				DD6996B727650AEF00144B4B /* AddTransactionScreen */,
+				DD6996B827650B0600144B4B /* TransactionsScreen */,
+				DDE7C076275F408600282299 /* extensions */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD6996B527650AA100144B4B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDE7C089275F453F00282299 /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD6996B627650ADB00144B4B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDE7C087275F453D00282299 /* AnalyticsViewController.swift */,
+				DDE7C081275F452E00282299 /* TabBarViewController.swift */,
+				DDE7C083275F453500282299 /* AddTransactionViewController.swift */,
+				DDE7C07F275F451200282299 /* TransactionsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD6996B727650AEF00144B4B /* AddTransactionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD6996B22763CA1100144B4B /* AddTransactionView.swift */,
+				DDE7C0D9275FF55E00282299 /* CategoryCollectionViewCell.swift */,
+			);
+			path = AddTransactionScreen;
+			sourceTree = "<group>";
+		};
+		DD6996B827650B0600144B4B /* TransactionsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DDE7C085275F453800282299 /* TransactionsTableViewCell.swift */,
+			);
+			path = TransactionsScreen;
+			sourceTree = "<group>";
+		};
+		DD6996B927650B1E00144B4B /* AnalyticsScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AnalyticsScreen;
+			sourceTree = "<group>";
+		};
 		DDE7C04A275F3C4B00282299 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +124,21 @@
 			children = (
 				DDE7C056275F3C4B00282299 /* AppDelegate.swift */,
 				DDE7C058275F3C4B00282299 /* SceneDelegate.swift */,
-				DDE7C05A275F3C4B00282299 /* ViewController.swift */,
-				DDE7C05C275F3C4B00282299 /* Main.storyboard */,
+				DD6996B627650ADB00144B4B /* Controller */,
+				DD6996B527650AA100144B4B /* Model */,
+				DD6996B427650A8300144B4B /* View */,
 				DDE7C05F275F3C4D00282299 /* Assets.xcassets */,
-				DDE7C061275F3C4D00282299 /* LaunchScreen.storyboard */,
 				DDE7C064275F3C4D00282299 /* Info.plist */,
 			);
 			path = Finance;
+			sourceTree = "<group>";
+		};
+		DDE7C076275F408600282299 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DDE7C077275F408600282299 /* UIView+Ext.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDE7C063275F3C4D00282299 /* LaunchScreen.storyboard in Resources */,
 				DDE7C060275F3C4D00282299 /* Assets.xcassets in Resources */,
-				DDE7C05E275F3C4B00282299 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,32 +210,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDE7C05B275F3C4B00282299 /* ViewController.swift in Sources */,
+				DDE7C088275F453D00282299 /* AnalyticsViewController.swift in Sources */,
 				DDE7C057275F3C4B00282299 /* AppDelegate.swift in Sources */,
+				DDE7C078275F408600282299 /* UIView+Ext.swift in Sources */,
+				DDE7C08A275F453F00282299 /* Transaction.swift in Sources */,
+				DDE7C084275F453500282299 /* AddTransactionViewController.swift in Sources */,
 				DDE7C059275F3C4B00282299 /* SceneDelegate.swift in Sources */,
+				DDE7C082275F452E00282299 /* TabBarViewController.swift in Sources */,
+				DDE7C086275F453800282299 /* TransactionsTableViewCell.swift in Sources */,
+				DD6996B32763CA1100144B4B /* AddTransactionView.swift in Sources */,
+				DDE7C080275F451300282299 /* TransactionsViewController.swift in Sources */,
+				DDE7C0DA275FF55E00282299 /* CategoryCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DDE7C05C275F3C4B00282299 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDE7C05D275F3C4B00282299 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DDE7C061275F3C4D00282299 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDE7C062275F3C4D00282299 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DDE7C065275F3C4D00282299 /* Debug */ = {
@@ -293,7 +354,6 @@
 				INFOPLIST_FILE = Finance/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +380,6 @@
 				INFOPLIST_FILE = Finance/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -13,11 +13,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+      
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = createTabBarController()
+        window?.makeKeyAndVisible()
     }
+    
+    func  createTabBarController() -> UITabBarController {
+        let transactionsVC = TransactionsViewController()
+        transactionsVC.tabBarItem = UITabBarItem(title: "list", image: UIImage(systemName: "list.bullet.circle"), selectedImage: UIImage(systemName: "list.bullet.circle.fill"))
+        
+        let analyticsVC = AnalyticsViewController()
+        analyticsVC.tabBarItem = UITabBarItem(title: "analytic", image: UIImage(systemName: "chart.pie"), selectedImage: UIImage(systemName: "chart.pie.fill"))
+        
+        let tabBarVC = TabBarViewController()
+        tabBarVC.tabBar.backgroundColor = .white
+        tabBarVC.viewControllers = [transactionsVC, analyticsVC]
+        return tabBarVC
+    }
+    
+    
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
