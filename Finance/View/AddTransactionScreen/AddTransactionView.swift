@@ -10,14 +10,19 @@ import UIKit
 
 class AddTransactionView: UIView {
     
+
+    var headerLabel = UILabel()
+    var summLabel = UILabel()
+    var appointmentLabel = UILabel()
+    var additionallyLabel = UILabel()
+    var dateLabel = UILabel()
     
-    var label = UILabel()
     var header = UIView()
     var summTextField = UITextField()
     var incomeButton = UIButton()
-    var expenseButton = UIButton()
+    let expenseButton = UIButton()
     var addButton = UIButton()
-    
+    weak var delegate: AddButtonDelegate?
     let categoriesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -26,19 +31,45 @@ class AddTransactionView: UIView {
         return categoriesCollectionView
     }()
     
+    //MARK: configure UIElements
+    
     func configureHeader() {
         header.backgroundColor = .secondarySystemBackground
         self.addSubview(header)
     }
     
-    func setHeaderConstrains() {
-        header.translatesAutoresizingMaskIntoConstraints = false
-        header.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        header.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        header.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        header.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    func configureHeaderLabel() {
+        headerLabel.text = "Add transaction"
+        headerLabel.textAlignment = .center
+        self.header.addSubview(headerLabel)
     }
     
+    func configureSummLabel() {
+        summLabel.text = "Сумма"
+        summLabel.textAlignment = .left
+        summLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        self.addSubview(summLabel)
+    }
+    
+    func configureAppointmentLabel() {
+        appointmentLabel.text = "Назначение"
+        appointmentLabel.textAlignment = .left
+        appointmentLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        self.addSubview(appointmentLabel)
+    }
+    
+    func configureAdditionallyLabel() {
+        additionallyLabel.text = "Дополнительно"
+        additionallyLabel.textAlignment = .left
+        self.addSubview(additionallyLabel)
+    }
+    
+    func configureImage(type: String) -> UIImageView {
+        let imageView = UIImageView(image: UIImage(systemName: type))
+        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(weight: .bold)
+        imageView.tintColor = .systemGray3
+        return imageView
+    }
     
     func configureTextField() {
         summTextField.placeholder = "100 ₽"
@@ -47,11 +78,7 @@ class AddTransactionView: UIView {
         summTextField.clearButtonMode = .always
         summTextField.leftViewMode = .always
         
-        let imageView = UIImageView(image: UIImage(systemName: "plus"))
-        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(weight: .bold)
-        imageView.tintColor = .systemGray3
-        
-        summTextField.leftView = imageView
+        summTextField.leftView = configureImage(type: "minus")
         summTextField.font = .systemFont(ofSize: 24)
         summTextField.keyboardType = .decimalPad
         
@@ -60,69 +87,121 @@ class AddTransactionView: UIView {
         
         addSubview(summTextField)
     }
-    
-    func setTextFieldConstrains() {
-        summTextField.translatesAutoresizingMaskIntoConstraints = false
-        summTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        summTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        summTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        summTextField.topAnchor.constraint(equalTo: self.header.bottomAnchor, constant: 40).isActive = true
-    }
-    
-    func setLabelConstrains() {
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        label.centerYAnchor.constraint(equalTo: self.header.centerYAnchor).isActive = true
-        label.centerXAnchor.constraint(equalTo: self.header.centerXAnchor).isActive = true
-    }
-    
-    
-    func configureLabel() {
-        label.text = "Add transaction"
-        label.textAlignment = .center
-        self.header.addSubview(label)
-    }
-    
 
     func configureIncomeButton() {
         incomeButton.setTitle("Income", for: .normal)
         incomeButton.setTitleColor(.systemBlue, for: .normal)
-        incomeButton.backgroundColor = .systemBlue
-        incomeButton.setTitleColor(.systemBlue, for: .selected)
-        incomeButton.isSelected = true
+        incomeButton.backgroundColor = .systemGray6
         incomeButton.setTitleColor(.white, for: .selected)
         incomeButton.addTarget(self, action: #selector(tapIncomeButton), for: .touchUpInside)
         incomeButton.layer.cornerRadius = 8
         self.addSubview(incomeButton)
     }
     
-    func setIncomeButtonConstrains() {
-        incomeButton.translatesAutoresizingMaskIntoConstraints = false
-        incomeButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        incomeButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        incomeButton.topAnchor.constraint(equalTo: self.summTextField.bottomAnchor, constant: 20).isActive = true
-        incomeButton.leadingAnchor.constraint(equalTo: self.summTextField.leadingAnchor).isActive = true
-    }
-    
-    
-    
     func configureExpenseButton() {
         expenseButton.setTitle("Expense", for: .normal)
         expenseButton.setTitleColor(.systemBlue, for: .normal)
-        expenseButton.backgroundColor = .systemGray6
+        expenseButton.backgroundColor = .systemBlue
+        expenseButton.isSelected = true
         expenseButton.setTitleColor(.white, for: .selected)
         expenseButton.addTarget(self, action: #selector(tapExpenseButton), for: .touchUpInside)
         expenseButton.layer.cornerRadius = 8
         self.addSubview(expenseButton)
     }
     
-    func setExpenseButtonConstrains() {
+    func configureCategoriesCollectionView() {
+        categoriesCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+       
+        categoriesCollectionView.layer.cornerRadius = 8
+        self.addSubview(categoriesCollectionView)
+    }
+    
+    func configureAddButton() {
+        addButton.setTitle("Add", for: .normal)
+        addButton.setTitleColor(.white, for: .normal)
+        addButton.backgroundColor = .systemBlue
+        addButton.setTitleColor(.white, for: .selected)
+        addButton.addTarget(self, action: #selector(tapAddButton), for: .touchUpInside)
+        addButton.layer.cornerRadius = 8
+        self.addSubview(addButton)
+    }
+    
+
+    //MARK: settings constraints
+
+    func setHeaderConstraints() {
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        header.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        header.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        header.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    
+    func setHeaderLabelConstraints() {
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        headerLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        headerLabel.centerYAnchor.constraint(equalTo: self.header.centerYAnchor).isActive = true
+        headerLabel.centerXAnchor.constraint(equalTo: self.header.centerXAnchor).isActive = true
+    }
+    
+    func setSummLabelConstraints() {
+        summLabel.translatesAutoresizingMaskIntoConstraints = false
+        summLabel.widthAnchor.constraint(equalToConstant: summLabel.intrinsicContentSize.width).isActive = true
+        summLabel.heightAnchor.constraint(equalToConstant: summLabel.intrinsicContentSize.height).isActive = true
+        summLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        summLabel.topAnchor.constraint(equalTo: self.header.bottomAnchor, constant: 40).isActive = true
+    }
+    
+    func setTextFieldConstraints() {
+        summTextField.translatesAutoresizingMaskIntoConstraints = false
+        summTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        summTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        summTextField.topAnchor.constraint(equalTo: self.summLabel.bottomAnchor, constant: 16).isActive = true
+        summTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        summTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+    }
+    
+    func setAppointmentLabelConstraints() {
+        appointmentLabel.translatesAutoresizingMaskIntoConstraints = false
+        appointmentLabel.widthAnchor.constraint(equalToConstant: appointmentLabel.intrinsicContentSize.width).isActive = true
+        appointmentLabel.heightAnchor.constraint(equalToConstant: appointmentLabel.intrinsicContentSize.height).isActive = true
+        appointmentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        appointmentLabel.topAnchor.constraint(equalTo: self.expenseButton.bottomAnchor, constant: 32).isActive = true
+    }
+    
+    
+    func setExpenseButtonConstraints() {
         expenseButton.translatesAutoresizingMaskIntoConstraints = false
-        expenseButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        expenseButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        expenseButton.topAnchor.constraint(equalTo: self.summTextField.bottomAnchor, constant: 20).isActive = true
-        expenseButton.trailingAnchor.constraint(equalTo: self.summTextField.trailingAnchor).isActive = true
+        expenseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        expenseButton.topAnchor.constraint(equalTo: self.summTextField.bottomAnchor, constant: 16).isActive = true
+        expenseButton.leadingAnchor.constraint(equalTo: incomeButton.trailingAnchor, constant: 16).isActive = true
+        expenseButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+    }
+    
+    func setIncomeButtonConstraints() {
+        incomeButton.translatesAutoresizingMaskIntoConstraints = false
+        incomeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        incomeButton.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        incomeButton.topAnchor.constraint(equalTo: self.summTextField.bottomAnchor, constant: 16).isActive = true
+        incomeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+    }
+    
+    func setCCollectionViewConstraints() {
+        categoriesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        categoriesCollectionView.widthAnchor.constraint(equalToConstant: 400).isActive = true
+        categoriesCollectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        categoriesCollectionView.topAnchor.constraint(equalTo: self.appointmentLabel.bottomAnchor, constant: 16).isActive = true
+        categoriesCollectionView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+    }
+    
+    func setAddButtonConstraints() {
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        addButton.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        addButton.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 16).isActive = true
+        addButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
     
     @objc func tapIncomeButton() {
@@ -131,9 +210,9 @@ class AddTransactionView: UIView {
             incomeButton.backgroundColor = .systemBlue
             expenseButton.isSelected = false
             expenseButton.backgroundColor = .systemGray6
+            self.summTextField.leftView = configureImage(type: "plus")
         }
     }
-    
 
     @objc func tapExpenseButton() {
         if  !expenseButton.isSelected {
@@ -141,109 +220,57 @@ class AddTransactionView: UIView {
             expenseButton.backgroundColor = .systemBlue
             incomeButton.isSelected = false
             incomeButton.backgroundColor = .systemGray6
+            self.summTextField.leftView = configureImage(type: "minus")
         }
         
     }
     
+ 
     @objc func tapAddButton() {
-            addButton.backgroundColor = .systemGray6
-            addButton.setTitleColor(.systemBlue, for: .selected)
-            addButton.isSelected = true
-            //dismiss(animated: true, completion: nil)
-            
-    }
-
-    
-
-    func configureCategoriesCollectionView(cv: UICollectionView) {
-        cv.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        cv.delegate = self
-        cv.dataSource = self
-        cv.layer.cornerRadius = 8
-        self.addSubview(cv)
-        
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        cv.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        cv.topAnchor.constraint(equalTo: self.expenseButton.bottomAnchor, constant: 30).isActive = true
-        cv.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        delegate?.tapAddButton(self)
     }
     
     
-    
-    func configureAddButton() {
-        addButton.setTitle("Add", for: .normal)
-        addButton.setTitleColor(.white, for: .normal)
-        addButton.backgroundColor = .systemBlue
-        addButton.addTarget(self, action: #selector(tapAddButton), for: .touchUpInside)
-        addButton.layer.cornerRadius = 8
-        self.addSubview(addButton)
-    }
-    
-    func setAddButtonConstrains() {
-        addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        addButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        addButton.topAnchor.constraint(equalTo: self.categoriesCollectionView.bottomAnchor, constant: 20).isActive = true
-        addButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-    }
+    //MARK: initializing
     
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .systemBackground
     
         configureHeader()
-        setHeaderConstrains()
+        setHeaderConstraints()
         
-        configureLabel() 
-        setLabelConstrains()
+        configureHeaderLabel()
+        setHeaderLabelConstraints()
         
+        configureSummLabel()
+        setSummLabelConstraints()
         
         configureTextField()
-        setTextFieldConstrains()
+        setTextFieldConstraints()
         
         configureIncomeButton()
-        setIncomeButtonConstrains()
+        setIncomeButtonConstraints()
         
         configureExpenseButton()
-        setExpenseButtonConstrains()
+        setExpenseButtonConstraints()
     
-        configureCategoriesCollectionView(cv: categoriesCollectionView)
+        configureAppointmentLabel()
+        setAppointmentLabelConstraints()
+        
+        configureCategoriesCollectionView()
+        setCCollectionViewConstraints()
         
         configureAddButton()
-        setAddButtonConstrains()
+        setAddButtonConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-
-
-
-
-
-
-extension AddTransactionView: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
-    }
-}
-
-extension AddTransactionView: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCollectionViewCell
-        
-        
-        return cell
-    }
-    
     
 }
+
+
+
+

@@ -9,13 +9,13 @@ import Foundation
 
 struct Transaction {
     var note: String
-    var category: String
     var summ: Int
+    unowned var category: Category
     
-    
-    init(note: String, categoty: String, summ: Int) {
+
+    init(note: String, category: Category, summ: Int) {
         self.note = note
-        self.category = categoty
+        self.category = category
         self.summ = summ
     }
 }

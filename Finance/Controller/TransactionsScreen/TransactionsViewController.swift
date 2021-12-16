@@ -23,17 +23,17 @@ class TransactionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        transactions.append(Transaction(note: "First", categoty: "Food", summ: 300))
-        transactions.append(Transaction(note: "Second", categoty: "Food", summ: 300))
-        transactions.append(Transaction(note: "Third", categoty: "Food", summ: 300))
-        transactions.append(Transaction(note: "Four", categoty: "Food", summ: 300))
+        transactions.append(Transaction(note: "First", category: Categories.categories[0], summ: 300))
+        transactions.append(Transaction(note: "Second", category: Categories.categories[1], summ: 300))
+        transactions.append(Transaction(note: "Third", category: Categories.categories[2], summ: 300))
+        transactions.append(Transaction(note: "Four", category: Categories.categories[3], summ: 300))
         
         
         
         
         
         
-        view.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
         transactionsTableView = UITableView(frame: CGRect(x: 0 , y: 0 , width: self.view.bounds.width, height: self.view.bounds.height), style: .plain)
   
         transactionsTableView.delegate = self

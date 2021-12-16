@@ -9,9 +9,10 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
-    let label: UILabel = {
+    var label: UILabel = {
         let label = UILabel()
         label.text = "👾"
+        label.font = UIFont(name: label.font.fontName, size: 40)
         return label
     }()
     
