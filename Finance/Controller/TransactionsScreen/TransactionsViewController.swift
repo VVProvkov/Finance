@@ -43,6 +43,13 @@ class TransactionsViewController: UIViewController {
         
         transactionsTableView.register(TransactionsTableViewCell.self, forCellReuseIdentifier: identifierCell)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        transactionsTableView.reloadData()
+    }
+    
+    
+    
     override func viewWillLayoutSubviews() {
         transactionsTableView.pin(to: self.view)
     }

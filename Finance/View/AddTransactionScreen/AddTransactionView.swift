@@ -26,8 +26,9 @@ class AddTransactionView: UIView {
     let categoriesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 70, height: 70)
-        let categoriesCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        layout.itemSize = CGSize(width: 40, height: 40)
+        let categoriesCollectionView = UICollectionView(frame: .init(x: 0, y: 0, width: 400, height: 400), collectionViewLayout: layout)
+        categoriesCollectionView.allowsSelection = true
         return categoriesCollectionView
     }()
     
@@ -111,7 +112,7 @@ class AddTransactionView: UIView {
     
     func configureCategoriesCollectionView() {
         categoriesCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-       
+        categoriesCollectionView.isUserInteractionEnabled = true
         categoriesCollectionView.layer.cornerRadius = 8
         self.addSubview(categoriesCollectionView)
     }

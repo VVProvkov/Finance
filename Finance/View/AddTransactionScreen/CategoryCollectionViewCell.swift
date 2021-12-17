@@ -20,6 +20,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(label)
+        contentView.backgroundColor = .red
+        contentView.isUserInteractionEnabled = true
     }
     
     required init?(coder: NSCoder) {

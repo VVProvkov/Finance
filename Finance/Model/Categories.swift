@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Categories {
     static var categories = [Category(name: "Food", emoji: "🍽"),
                              Category(name: "Wear", emoji: "👕"),
@@ -13,7 +14,7 @@ struct Categories {
                              Category(name: "Health", emoji: "🩺"),
                              Category(name: "Health", emoji: "🩺"),]
     
-    static var numbersOfcategory = categories.count
+    static var numbersOfCategory = categories.count
     
     static func addNewCategory(category: Category) {
         self.categories.append(category)

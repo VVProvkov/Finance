@@ -10,7 +10,7 @@
 		DD6996B32763CA1100144B4B /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6996B22763CA1100144B4B /* AddTransactionView.swift */; };
 		DD6CD4AC2769F6A5001BB53F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4AB2769F6A5001BB53F /* Category.swift */; };
 		DD6CD4B3276B6019001BB53F /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B2276B6019001BB53F /* Categories.swift */; };
-		DD6CD4B5276B751C001BB53F /* Transacions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B4276B751C001BB53F /* Transacions.swift */; };
+		DD6CD4B5276B751C001BB53F /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B4276B751C001BB53F /* Transactions.swift */; };
 		DD6CD4B8276B89D9001BB53F /* AddButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B7276B89D9001BB53F /* AddButtonDelegate.swift */; };
 		DDE7C057275F3C4B00282299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C056275F3C4B00282299 /* AppDelegate.swift */; };
 		DDE7C059275F3C4B00282299 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C058275F3C4B00282299 /* SceneDelegate.swift */; };
@@ -29,7 +29,7 @@
 		DD6996B22763CA1100144B4B /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 		DD6CD4AB2769F6A5001BB53F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DD6CD4B2276B6019001BB53F /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		DD6CD4B4276B751C001BB53F /* Transacions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transacions.swift; sourceTree = "<group>"; };
+		DD6CD4B4276B751C001BB53F /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		DD6CD4B7276B89D9001BB53F /* AddButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonDelegate.swift; sourceTree = "<group>"; };
 		DDE7C053275F3C4B00282299 /* Finance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE7C056275F3C4B00282299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 				DDE7C089275F453F00282299 /* Transaction.swift */,
 				DD6CD4AB2769F6A5001BB53F /* Category.swift */,
 				DD6CD4B2276B6019001BB53F /* Categories.swift */,
-				DD6CD4B4276B751C001BB53F /* Transacions.swift */,
+				DD6CD4B4276B751C001BB53F /* Transactions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,7 +274,7 @@
 				DDE7C086275F453800282299 /* TransactionsTableViewCell.swift in Sources */,
 				DD6996B32763CA1100144B4B /* AddTransactionView.swift in Sources */,
 				DDE7C080275F451300282299 /* TransactionsViewController.swift in Sources */,
-				DD6CD4B5276B751C001BB53F /* Transacions.swift in Sources */,
+				DD6CD4B5276B751C001BB53F /* Transactions.swift in Sources */,
 				DDE7C0DA275FF55E00282299 /* CategoryCollectionViewCell.swift in Sources */,
 				DD6CD4B3276B6019001BB53F /* Categories.swift in Sources */,
 			);
