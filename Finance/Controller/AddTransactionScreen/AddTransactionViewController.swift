@@ -9,10 +9,11 @@ import UIKit
 
 class AddTransactionViewController: UIViewController {
 
-    
     var addTransactionView = AddTransactionView()
     var transaction: Transaction?
     var category: Category?
+    
+    let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,32 +25,49 @@ class AddTransactionViewController: UIViewController {
     }
 }
 
-extension AddTransactionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+
+
+
+extension AddTransactionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        Categories.numbersOfCategory
+        return Categories.numbersOfCategory
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CategoryCollectionViewCell
-        cell.label.text = Categories.categories[indexPath.row].emoji
-        return cell
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CategoryCollectionViewCell {
+//            cell.label.text = Categories.categories[indexPath.row].emoji
+//            return cell
+//        }
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? TestCollectionViewCell {
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        _ = collectionView.indexPathsForSelectedItems?.first
-        //category = Categories.categories[indexPath.row]
-        print("нажал")
-       
+        print("yf;fk")
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = .green
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("ds;fk")
+}
+
+
+extension AddTransactionViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let paddingWidth = sectionInserts.left * (3 + 1)
+        let availableWidth = collectionView.frame.width - paddingWidth
+        let widthPerItem = availableWidth / 3
+        return CGSize(width: widthPerItem, height: widthPerItem)
+
     }
-    
-    
-    
-    
+
 }
 
 extension AddTransactionViewController: UITextFieldDelegate {

@@ -111,7 +111,8 @@ class AddTransactionView: UIView {
     }
     
     func configureCategoriesCollectionView() {
-        categoriesCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        //categoriesCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        categoriesCollectionView.register(TestCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         categoriesCollectionView.isUserInteractionEnabled = true
         categoriesCollectionView.layer.cornerRadius = 8
         self.addSubview(categoriesCollectionView)

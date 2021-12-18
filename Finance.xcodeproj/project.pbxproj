@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD509C2F276DD95F00801DA7 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD509C2E276DD95F00801DA7 /* TestCollectionViewCell.swift */; };
+		DD509C31276DEDA800801DA7 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */; };
 		DD6996B32763CA1100144B4B /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6996B22763CA1100144B4B /* AddTransactionView.swift */; };
 		DD6CD4AC2769F6A5001BB53F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4AB2769F6A5001BB53F /* Category.swift */; };
 		DD6CD4B3276B6019001BB53F /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B2276B6019001BB53F /* Categories.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD509C2E276DD95F00801DA7 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		DD6996B22763CA1100144B4B /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 		DD6CD4AB2769F6A5001BB53F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DD6CD4B2276B6019001BB53F /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				DD6CD4B1276B43CA001BB53F /* TransactionsScreen */,
 				DD6CD4AF276B436D001BB53F /* AnalyticsScreen */,
 				DDE7C081275F452E00282299 /* TabBarViewController.swift */,
+				DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 			children = (
 				DD6996B22763CA1100144B4B /* AddTransactionView.swift */,
 				DDE7C0D9275FF55E00282299 /* CategoryCollectionViewCell.swift */,
+				DD509C2E276DD95F00801DA7 /* TestCollectionViewCell.swift */,
 			);
 			path = AddTransactionScreen;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			files = (
 				DDE7C088275F453D00282299 /* AnalyticsViewController.swift in Sources */,
 				DD6CD4B8276B89D9001BB53F /* AddButtonDelegate.swift in Sources */,
+				DD509C31276DEDA800801DA7 /* CategoriesTableViewController.swift in Sources */,
 				DDE7C057275F3C4B00282299 /* AppDelegate.swift in Sources */,
 				DD6CD4AC2769F6A5001BB53F /* Category.swift in Sources */,
 				DDE7C078275F408600282299 /* UIView+Ext.swift in Sources */,
@@ -273,6 +280,7 @@
 				DDE7C082275F452E00282299 /* TabBarViewController.swift in Sources */,
 				DDE7C086275F453800282299 /* TransactionsTableViewCell.swift in Sources */,
 				DD6996B32763CA1100144B4B /* AddTransactionView.swift in Sources */,
+				DD509C2F276DD95F00801DA7 /* TestCollectionViewCell.swift in Sources */,
 				DDE7C080275F451300282299 /* TransactionsViewController.swift in Sources */,
 				DD6CD4B5276B751C001BB53F /* Transactions.swift in Sources */,
 				DDE7C0DA275FF55E00282299 /* CategoryCollectionViewCell.swift in Sources */,
