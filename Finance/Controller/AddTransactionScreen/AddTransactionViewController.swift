@@ -11,64 +11,24 @@ class AddTransactionViewController: UIViewController {
 
     var addTransactionView = AddTransactionView()
     var transaction: Transaction?
-    var category: Category?
-    
-    let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    var selectedCategory: Category? {
+        didSet {
+            addTransactionView.choiceCategoryButton.setTitle("\(selectedCategory!.emoji) \(selectedCategory!.name)", for: .normal)
+        }
+    }
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(addTransactionView)
         addTransactionView.pin(to: self.view)
-        addTransactionView.categoriesCollectionView.delegate = self
-        addTransactionView.categoriesCollectionView.dataSource = self
         addTransactionView.delegate = self
-    }
-}
-
-
-
-
-
-extension AddTransactionViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Categories.numbersOfCategory
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CategoryCollectionViewCell {
-//            cell.label.text = Categories.categories[indexPath.row].emoji
-//            return cell
-//        }
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? TestCollectionViewCell {
-            return cell
-        }
         
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("yf;fk")
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = .green
-    }
-    
-}
-
-
-extension AddTransactionViewController: UICollectionViewDelegateFlowLayout {
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let paddingWidth = sectionInserts.left * (3 + 1)
-        let availableWidth = collectionView.frame.width - paddingWidth
-        let widthPerItem = availableWidth / 3
-        return CGSize(width: widthPerItem, height: widthPerItem)
-
     }
-
 }
+
 
 extension AddTransactionViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -79,10 +39,27 @@ extension AddTransactionViewController: UITextFieldDelegate {
 }
 
 
-extension AddTransactionViewController: AddButtonDelegate {
-    func tapAddButton(_ view: AddTransactionView) {
-        self.dismiss(animated: true, completion: nil)
-        guard let category = category  else { return }
-        Transactions.addNewTransaction(transaction: Transaction(note: "", category: category, summ: 100))
+extension AddTransactionViewController: ButtonDelegate {
+    func tapButton(_ view: AddTransactionView, sender: UIButton) {
+        
+        if sender.tag == 0 {
+            let categoriesTableVC = CategoriesTableViewController()
+            self.navigationController?.pushViewController(categoriesTableVC, animated: true)
+        } else {
+            guard let selectedCategory = selectedCategory  else { return print("не выбрана категория")}
+            
+            guard let summString = self.addTransactionView.summTextField.text else { return }
+            let summ = Int(summString) ?? 0
+        
+            let note = self.addTransactionView.noteTextField.text ?? ""
+            Transactions.addNewTransaction(transaction: Transaction(note: note, category: selectedCategory, summ: summ))
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
     }
+    
+    
+
+    
 }

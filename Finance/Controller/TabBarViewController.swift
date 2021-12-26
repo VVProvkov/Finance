@@ -35,8 +35,10 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         self.view.addSubview(middleButton)
     }
     @objc func menuButtonAction(sender: UIButton) {
-        let transactionsVC = AddTransactionViewController()
-        self.present(transactionsVC, animated: true, completion: nil)
+        let addTransactionVC = AddTransactionViewController()
+        
+        let addTransactionNVC = UINavigationController(rootViewController: addTransactionVC)
+        self.present(addTransactionNVC, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {

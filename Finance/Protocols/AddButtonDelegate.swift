@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import UIKit
 
-protocol AddButtonDelegate: AnyObject {
-    func tapAddButton(_ view: AddTransactionView)
+protocol ButtonDelegate: AnyObject {
+    func tapButton(_ view: AddTransactionView, sender: UIButton)
 }

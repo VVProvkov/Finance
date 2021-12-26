@@ -11,31 +11,41 @@ class CategoriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = .green
+        self.tableView.register(CategoriesTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.backgroundColor = .systemBackground
+    
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Categories.categories.count
     }
 
-    /*
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CategoriesTableViewCell {
+            cell.set(category: Categories.categories[indexPath.row])
+            
+            return cell
+        }
+           
+        return UITableViewCell()
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCategory = Categories.categories[indexPath.row]
+        guard let AddTransactionVC = self.navigationController?.viewControllers.first as? AddTransactionViewController else { return }
+        AddTransactionVC.selectedCategory = selectedCategory
+        self.navigationController?.popViewController(animated: true)
+    }
+  
 
     /*
     // Override to support conditional editing of the table view.

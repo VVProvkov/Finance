@@ -1,16 +1,15 @@
 //
-//  TransactionsTableViewCell.swift
-//  Phin2
+//  TableViewCell.swift
+//  Finance
 //
-//  Created by Vadim on 29.11.2021.
+//  Created by Vadim on 19.12.2021.
 //
 
 import UIKit
 
-class TransactionsTableViewCell: UITableViewCell {
+class CategoriesTableViewCell: UITableViewCell {
 
-    
-   
+    let identifier = "cell"
     
     var noteLabel = UILabel()
     var categoryLabel = UILabel()
@@ -36,10 +35,9 @@ class TransactionsTableViewCell: UITableViewCell {
     
     
     
-    func set(transaction: Transaction) -> () {
-        noteLabel.text = transaction.note
-        categoryLabel.text = transaction.category.emoji
-        summLabel.text = String(transaction.summ)
+    func set(category: Category) -> () {
+        noteLabel.text = category.name
+        categoryLabel.text = category.emoji
     }
     
     func configureNoteLabel() {
@@ -86,3 +84,4 @@ class TransactionsTableViewCell: UITableViewCell {
     
     
 }
+

@@ -28,9 +28,11 @@ class TransactionsViewController: UIViewController {
         transactions.append(Transaction(note: "Third", category: Categories.categories[2], summ: 300))
         transactions.append(Transaction(note: "Four", category: Categories.categories[3], summ: 300))
         
-        
-        
-        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("addedNewTransaction"), object: nil, queue: nil) { (notification) in
+            guard let newTransaction = Transactions.transactions.last else { return }
+            self.transactions.append(newTransaction)
+            
+        }
         
         
         view.backgroundColor = .systemBackground
