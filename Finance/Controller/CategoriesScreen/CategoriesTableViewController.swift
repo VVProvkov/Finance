@@ -12,10 +12,25 @@ class CategoriesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(CategoriesTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(AddCategoryTableViewCell.self, forCellReuseIdentifier: "addCategoryCell")
         self.tableView.backgroundColor = .systemBackground
-    
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("addedNewCategory"), object: nil, queue: nil) { _ in
+            print("пришло в вс")
+            self.tableView.reloadData()
+        }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("deletedCategory"), object: nil, queue: nil) { _ in
+            self.tableView.reloadData()
+        }
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -25,28 +40,59 @@ class CategoriesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Categories.categories.count
+        return Categories.categories.count + 1
     }
 
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CategoriesTableViewCell {
-            cell.set(category: Categories.categories[indexPath.row])
-            
-            return cell
+        
+        let lastIndex = Categories.categories.count
+        
+        if indexPath.row == lastIndex {
+            if let addCell = tableView.dequeueReusableCell(withIdentifier: "addCategoryCell", for: indexPath) as? AddCategoryTableViewCell {
+                return addCell
+            }
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CategoriesTableViewCell {
+                cell.set(category: Categories.categories[indexPath.row])
+                return cell
+            }
         }
-           
         return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCategory = Categories.categories[indexPath.row]
-        guard let AddTransactionVC = self.navigationController?.viewControllers.first as? AddTransactionViewController else { return }
-        AddTransactionVC.selectedCategory = selectedCategory
-        self.navigationController?.popViewController(animated: true)
+        let lastIndex = Categories.categories.count
+        if indexPath.row == lastIndex {
+            let addCategoryVC = AddCategoryViewController()
+            present(addCategoryVC, animated: true, completion: nil)
+        } else {
+            let selectedCategory = Categories.categories[indexPath.row]
+            guard let AddTransactionVC = self.navigationController?.viewControllers.first as? AddTransactionViewController else { return }
+            AddTransactionVC.selectedCategory = selectedCategory
+            self.navigationController?.popViewController(animated: true)
+        }
+
     }
   
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { action, view, completion in
+            let category = Categories.categories[indexPath.row]
+            Categories.deleteCategory(category: category, index: indexPath.row)
 
+        }
+        action.backgroundColor = .systemRed
+        action.image = UIImage(systemName: "trash")
+        return action
+    }
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

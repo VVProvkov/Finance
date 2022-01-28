@@ -17,18 +17,23 @@ class AddTransactionViewController: UIViewController {
         }
     }
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(addTransactionView)
         addTransactionView.pin(to: self.view)
         addTransactionView.delegate = self
-        
+        addTransactionView.summTextField.delegate = self
         
     }
-}
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "", message: "Не выбрана категория", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
 
+}
 
 extension AddTransactionViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -38,28 +43,21 @@ extension AddTransactionViewController: UITextFieldDelegate {
     }
 }
 
-
-extension AddTransactionViewController: ButtonDelegate {
+extension AddTransactionViewController: AddTransactionButtonDelegate {
     func tapButton(_ view: AddTransactionView, sender: UIButton) {
-        
         if sender.tag == 0 {
             let categoriesTableVC = CategoriesTableViewController()
             self.navigationController?.pushViewController(categoriesTableVC, animated: true)
         } else {
-            guard let selectedCategory = selectedCategory  else { return print("не выбрана категория")}
-            
-            guard let summString = self.addTransactionView.summTextField.text else { return }
+            guard let selectedCategory = selectedCategory  else { return showAlert()}
+            guard let summString = view.summTextField.text else { return }
             let summ = Int(summString) ?? 0
-        
-            let note = self.addTransactionView.noteTextField.text ?? ""
-            Transactions.addNewTransaction(transaction: Transaction(note: note, category: selectedCategory, summ: summ))
+            let note = view.noteTextField.text ?? ""
+            let date = view.todaysDate
+            var type = view.expenseButton.isSelected ? TypeTransaction.expense : .income
+            let newTransaction = Transaction(note: note, category: selectedCategory, summ: summ, date: date, type: type)
+            DatesDictionary.addTransaction(transaction: newTransaction)
             self.dismiss(animated: true, completion: nil)
         }
-        
-        
     }
-    
-    
-
-    
 }

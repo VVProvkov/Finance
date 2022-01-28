@@ -10,7 +10,6 @@ import Foundation
 class Category {
     var name: String
     var emoji: String
-    var transactions: [Transaction]?
     
     init(name: String, emoji: String) {
         self.name = name

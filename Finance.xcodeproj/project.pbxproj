@@ -7,14 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0B54C227A13E38001611F7 /* TableViewDelegate + Data Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B54C127A13E38001611F7 /* TableViewDelegate + Data Source.swift */; };
+		DD0EF88E27916F080083AADF /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EF88D27916F080083AADF /* EmojiTextField.swift */; };
+		DD0EF89027916F5B0083AADF /* AddCategoryButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EF88F27916F5B0083AADF /* AddCategoryButtonDelegate.swift */; };
+		DD30EF04279020DC005F32DB /* AddCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD30EF03279020DC005F32DB /* AddCategoryTableViewCell.swift */; };
+		DD30EF09279037BD005F32DB /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD30EF08279037BD005F32DB /* AddCategoryViewController.swift */; };
+		DD30EF0B27907A5B005F32DB /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD30EF0A27907A5B005F32DB /* AddCategoryView.swift */; };
+		DD4C53782778EAC00050A6E9 /* UIViewController + Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4C53772778EAC00050A6E9 /* UIViewController + Alert.swift */; };
 		DD509C31276DEDA800801DA7 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */; };
-		DD550E2C276F35D700CBEC51 /* ChoiceCategoryButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD550E2B276F35D700CBEC51 /* ChoiceCategoryButtonDelegate.swift */; };
 		DD550E2E276F54D900CBEC51 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD550E2D276F54D900CBEC51 /* CategoriesTableViewCell.swift */; };
 		DD6996B32763CA1100144B4B /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6996B22763CA1100144B4B /* AddTransactionView.swift */; };
 		DD6CD4AC2769F6A5001BB53F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4AB2769F6A5001BB53F /* Category.swift */; };
 		DD6CD4B3276B6019001BB53F /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B2276B6019001BB53F /* Categories.swift */; };
 		DD6CD4B5276B751C001BB53F /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B4276B751C001BB53F /* Transactions.swift */; };
-		DD6CD4B8276B89D9001BB53F /* AddButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B7276B89D9001BB53F /* AddButtonDelegate.swift */; };
+		DD6CD4B8276B89D9001BB53F /* AddTransactionButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6CD4B7276B89D9001BB53F /* AddTransactionButtonDelegate.swift */; };
+		DD7423F12799A67B00780C31 /* TransactionsAnaliticsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7423F02799A67B00780C31 /* TransactionsAnaliticsData.swift */; };
+		DD80A39B2796C59000A269F1 /* AnaliticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80A39A2796C59000A269F1 /* AnaliticsView.swift */; };
+		DD80A39D2796D52900A269F1 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80A39C2796D52900A269F1 /* TransactionType.swift */; };
+		DD80A39F2797083400A269F1 /* AnalitycsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80A39E2797083400A269F1 /* AnalitycsPageViewController.swift */; };
+		DD80A3A12797087500A269F1 /* ContentAnaliticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD80A3A02797087500A269F1 /* ContentAnaliticsViewController.swift */; };
+		DD988A2B27930E8F009BF522 /* DatesDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD988A2A27930E8F009BF522 /* DatesDictionary.swift */; };
+		DDCF968C2794345100DE0FF6 /* Date+ ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF968B2794345100DE0FF6 /* Date+ ext.swift */; };
 		DDE7C057275F3C4B00282299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C056275F3C4B00282299 /* AppDelegate.swift */; };
 		DDE7C059275F3C4B00282299 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C058275F3C4B00282299 /* SceneDelegate.swift */; };
 		DDE7C060275F3C4D00282299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE7C05F275F3C4D00282299 /* Assets.xcassets */; };
@@ -28,14 +41,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD0B54C127A13E38001611F7 /* TableViewDelegate + Data Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewDelegate + Data Source.swift"; sourceTree = "<group>"; };
+		DD0EF88D27916F080083AADF /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
+		DD0EF88F27916F5B0083AADF /* AddCategoryButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryButtonDelegate.swift; sourceTree = "<group>"; };
+		DD30EF03279020DC005F32DB /* AddCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		DD30EF08279037BD005F32DB /* AddCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		DD30EF0A27907A5B005F32DB /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
+		DD4C53772778EAC00050A6E9 /* UIViewController + Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alert.swift"; sourceTree = "<group>"; };
 		DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
-		DD550E2B276F35D700CBEC51 /* ChoiceCategoryButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCategoryButtonDelegate.swift; sourceTree = "<group>"; };
 		DD550E2D276F54D900CBEC51 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		DD6996B22763CA1100144B4B /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
 		DD6CD4AB2769F6A5001BB53F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DD6CD4B2276B6019001BB53F /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		DD6CD4B4276B751C001BB53F /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
-		DD6CD4B7276B89D9001BB53F /* AddButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonDelegate.swift; sourceTree = "<group>"; };
+		DD6CD4B7276B89D9001BB53F /* AddTransactionButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionButtonDelegate.swift; sourceTree = "<group>"; };
+		DD7423F02799A67B00780C31 /* TransactionsAnaliticsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsAnaliticsData.swift; sourceTree = "<group>"; };
+		DD80A39A2796C59000A269F1 /* AnaliticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaliticsView.swift; sourceTree = "<group>"; };
+		DD80A39C2796D52900A269F1 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		DD80A39E2797083400A269F1 /* AnalitycsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalitycsPageViewController.swift; sourceTree = "<group>"; };
+		DD80A3A02797087500A269F1 /* ContentAnaliticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAnaliticsViewController.swift; sourceTree = "<group>"; };
+		DD988A2A27930E8F009BF522 /* DatesDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesDictionary.swift; sourceTree = "<group>"; };
+		DDCF968B2794345100DE0FF6 /* Date+ ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ ext.swift"; sourceTree = "<group>"; };
 		DDE7C053275F3C4B00282299 /* Finance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE7C056275F3C4B00282299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDE7C058275F3C4B00282299 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,12 +87,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD30EF0527902129005F32DB /* CategoriesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD550E2D276F54D900CBEC51 /* CategoriesTableViewCell.swift */,
+				DD30EF03279020DC005F32DB /* AddCategoryTableViewCell.swift */,
+			);
+			path = CategoriesScreen;
+			sourceTree = "<group>";
+		};
+		DD30EF0627903779005F32DB /* AddCategoriesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD30EF0A27907A5B005F32DB /* AddCategoryView.swift */,
+				DD0EF88D27916F080083AADF /* EmojiTextField.swift */,
+			);
+			path = AddCategoriesScreen;
+			sourceTree = "<group>";
+		};
+		DD30EF0727903789005F32DB /* AddCategoriesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD30EF08279037BD005F32DB /* AddCategoryViewController.swift */,
+			);
+			path = AddCategoriesScreen;
+			sourceTree = "<group>";
+		};
+		DD4C53762778AED80050A6E9 /* CategoriesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */,
+			);
+			path = CategoriesScreen;
+			sourceTree = "<group>";
+		};
 		DD6996B427650A8300144B4B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DD6996B727650AEF00144B4B /* AddTransactionScreen */,
-				DD6996B927650B1E00144B4B /* AnalyticsScreen */,
 				DD6996B827650B0600144B4B /* TransactionsScreen */,
+				DD6996B727650AEF00144B4B /* AddTransactionScreen */,
+				DD30EF0527902129005F32DB /* CategoriesScreen */,
+				DD30EF0627903779005F32DB /* AddCategoriesScreen */,
+				DD6996B927650B1E00144B4B /* AnalyticsScreen */,
+				DDE7C081275F452E00282299 /* TabBarViewController.swift */,
 				DDE7C076275F408600282299 /* extensions */,
 			);
 			path = View;
@@ -75,10 +138,13 @@
 		DD6996B527650AA100144B4B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DDE7C089275F453F00282299 /* Transaction.swift */,
 				DD6CD4AB2769F6A5001BB53F /* Category.swift */,
 				DD6CD4B2276B6019001BB53F /* Categories.swift */,
+				DDE7C089275F453F00282299 /* Transaction.swift */,
 				DD6CD4B4276B751C001BB53F /* Transactions.swift */,
+				DD988A2A27930E8F009BF522 /* DatesDictionary.swift */,
+				DD80A39C2796D52900A269F1 /* TransactionType.swift */,
+				DD7423F02799A67B00780C31 /* TransactionsAnaliticsData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -86,10 +152,11 @@
 		DD6996B627650ADB00144B4B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DD6CD4B0276B4385001BB53F /* AddTransactionScreen */,
 				DD6CD4B1276B43CA001BB53F /* TransactionsScreen */,
+				DD6CD4B0276B4385001BB53F /* AddTransactionScreen */,
+				DD4C53762778AED80050A6E9 /* CategoriesScreen */,
+				DD30EF0727903789005F32DB /* AddCategoriesScreen */,
 				DD6CD4AF276B436D001BB53F /* AnalyticsScreen */,
-				DDE7C081275F452E00282299 /* TabBarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -113,6 +180,7 @@
 		DD6996B927650B1E00144B4B /* AnalyticsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				DD80A39A2796C59000A269F1 /* AnaliticsView.swift */,
 			);
 			path = AnalyticsScreen;
 			sourceTree = "<group>";
@@ -121,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				DDE7C087275F453D00282299 /* AnalyticsViewController.swift */,
+				DD80A39E2797083400A269F1 /* AnalitycsPageViewController.swift */,
+				DD80A3A02797087500A269F1 /* ContentAnaliticsViewController.swift */,
 			);
 			path = AnalyticsScreen;
 			sourceTree = "<group>";
@@ -129,8 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				DDE7C083275F453500282299 /* AddTransactionViewController.swift */,
-				DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */,
-				DD550E2D276F54D900CBEC51 /* CategoriesTableViewCell.swift */,
 			);
 			path = AddTransactionScreen;
 			sourceTree = "<group>";
@@ -139,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE7C07F275F451200282299 /* TransactionsViewController.swift */,
+				DD0B54C127A13E38001611F7 /* TableViewDelegate + Data Source.swift */,
 			);
 			path = TransactionsScreen;
 			sourceTree = "<group>";
@@ -146,8 +215,8 @@
 		DD6CD4B6276B89B1001BB53F /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				DD6CD4B7276B89D9001BB53F /* AddButtonDelegate.swift */,
-				DD550E2B276F35D700CBEC51 /* ChoiceCategoryButtonDelegate.swift */,
+				DD6CD4B7276B89D9001BB53F /* AddTransactionButtonDelegate.swift */,
+				DD0EF88F27916F5B0083AADF /* AddCategoryButtonDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -182,8 +251,8 @@
 		DDE7C055275F3C4B00282299 /* Finance */ = {
 			isa = PBXGroup;
 			children = (
-				DD6996B627650ADB00144B4B /* Controller */,
 				DD6996B527650AA100144B4B /* Model */,
+				DD6996B627650ADB00144B4B /* Controller */,
 				DD6996B427650A8300144B4B /* View */,
 				DD6CD4B6276B89B1001BB53F /* Protocols */,
 				DD6CD4B9276B8A1A001BB53F /* SupportFiles */,
@@ -195,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				DDE7C077275F408600282299 /* UIView+Ext.swift */,
+				DD4C53772778EAC00050A6E9 /* UIViewController + Alert.swift */,
+				DDCF968B2794345100DE0FF6 /* Date+ ext.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -269,8 +340,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDE7C088275F453D00282299 /* AnalyticsViewController.swift in Sources */,
-				DD6CD4B8276B89D9001BB53F /* AddButtonDelegate.swift in Sources */,
+				DD0EF88E27916F080083AADF /* EmojiTextField.swift in Sources */,
+				DD6CD4B8276B89D9001BB53F /* AddTransactionButtonDelegate.swift in Sources */,
 				DD509C31276DEDA800801DA7 /* CategoriesTableViewController.swift in Sources */,
+				DDCF968C2794345100DE0FF6 /* Date+ ext.swift in Sources */,
+				DD0B54C227A13E38001611F7 /* TableViewDelegate + Data Source.swift in Sources */,
+				DD988A2B27930E8F009BF522 /* DatesDictionary.swift in Sources */,
 				DD550E2E276F54D900CBEC51 /* CategoriesTableViewCell.swift in Sources */,
 				DDE7C057275F3C4B00282299 /* AppDelegate.swift in Sources */,
 				DD6CD4AC2769F6A5001BB53F /* Category.swift in Sources */,
@@ -278,12 +353,21 @@
 				DDE7C08A275F453F00282299 /* Transaction.swift in Sources */,
 				DDE7C084275F453500282299 /* AddTransactionViewController.swift in Sources */,
 				DDE7C059275F3C4B00282299 /* SceneDelegate.swift in Sources */,
-				DD550E2C276F35D700CBEC51 /* ChoiceCategoryButtonDelegate.swift in Sources */,
+				DD7423F12799A67B00780C31 /* TransactionsAnaliticsData.swift in Sources */,
+				DD80A39F2797083400A269F1 /* AnalitycsPageViewController.swift in Sources */,
 				DDE7C082275F452E00282299 /* TabBarViewController.swift in Sources */,
+				DD0EF89027916F5B0083AADF /* AddCategoryButtonDelegate.swift in Sources */,
+				DD4C53782778EAC00050A6E9 /* UIViewController + Alert.swift in Sources */,
 				DDE7C086275F453800282299 /* TransactionsTableViewCell.swift in Sources */,
 				DD6996B32763CA1100144B4B /* AddTransactionView.swift in Sources */,
+				DD30EF09279037BD005F32DB /* AddCategoryViewController.swift in Sources */,
+				DD80A3A12797087500A269F1 /* ContentAnaliticsViewController.swift in Sources */,
 				DDE7C080275F451300282299 /* TransactionsViewController.swift in Sources */,
+				DD80A39D2796D52900A269F1 /* TransactionType.swift in Sources */,
+				DD30EF04279020DC005F32DB /* AddCategoryTableViewCell.swift in Sources */,
 				DD6CD4B5276B751C001BB53F /* Transactions.swift in Sources */,
+				DD30EF0B27907A5B005F32DB /* AddCategoryView.swift in Sources */,
+				DD80A39B2796C59000A269F1 /* AnaliticsView.swift in Sources */,
 				DD6CD4B3276B6019001BB53F /* Categories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

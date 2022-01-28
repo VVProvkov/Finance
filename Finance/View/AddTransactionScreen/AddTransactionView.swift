@@ -10,55 +10,55 @@ import UIKit
 
 class AddTransactionView: UIView {
 
-    var headerLabel = UILabel()
+    var todaysDate = Date()
     var summLabel = UILabel()
     var appointmentLabel = UILabel()
     var dateLabel = UILabel()
     var noteLabel = UILabel()
-    var header = UIView()
     var summTextField = UITextField()
     var noteTextField = UITextField()
     var incomeButton = UIButton()
     var expenseButton = UIButton()
     var choiceCategoryButton = UIButton()
     var addButton = UIButton()
-    weak var delegate: ButtonDelegate?
+    weak var delegate: AddTransactionButtonDelegate?
     var stackView = UIStackView()
+    var summStackView = UIStackView()
+    var categoryStackView = UIStackView()
+    var noteStackView = UIStackView()
+    var typeButtonsStackView = UIStackView()
+    var scrollView = UIScrollView()
 
+    //MARK: configure ScrollView
+    
+    func configureScrollView() {
+        scrollView.contentSize.height = 600
+        self.addSubview(scrollView)
+        scrollView.addSubview(stackView)
+        scrollView.setHorizontalConstraintsTo(superView: self, left: 8, right: 8)
+        scrollView.setVerticalConstraintsTo(superView: self, top: 0, bottom: 0)
+    }
+    
     //MARK: configure UIElements
-    
-    func configureStackView() {
-        self.addSubview(stackView)
-    }
-    
-    func setStackViewConstraints() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        //stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        stackView.topAnchor.constraint(equalTo: self.header.bottomAnchor, constant: 32).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
-        stackView
-    }
-    
-    
-    
-    
-    func configureHeader() {
-        header.backgroundColor = .secondarySystemBackground
-        self.addSubview(header)
-    }
-    
-    func configureHeaderLabel() {
-        headerLabel.text = "Добавить операцию"
-        headerLabel.textAlignment = .center
-        self.header.addSubview(headerLabel)
-    }
-    
+
     func configureSummLabel() {
         summLabel.text = "Сумма"
         summLabel.textAlignment = .left
         summLabel.font = UIFont.boldSystemFont(ofSize: 22)
         self.addSubview(summLabel)
+    }
+    
+    func configureDateLabel() {
+        let calendar = Calendar.current
+        var date = Date()
+        let dateComponentsFromCurrentDate = calendar.dateComponents([.year, .month, .day], from: date)
+        date = calendar.date(from: dateComponentsFromCurrentDate) ?? Date()
+        let dateString = date.dateToString()
+        self.todaysDate = date
+        dateLabel.text = "Дата: \(dateString)"
+        dateLabel.textAlignment = .center
+        dateLabel.font = UIFont.systemFont(ofSize: 18, weight: .light)
+        self.addSubview(dateLabel)
     }
     
     func configureAppointmentLabel() {
@@ -73,6 +73,7 @@ class AddTransactionView: UIView {
         noteLabel.textAlignment = .left
         noteLabel.font = UIFont.boldSystemFont(ofSize: 22)
         self.addSubview(noteLabel)
+        
     }
     
     func configureImage(type: String) -> UIImageView {
@@ -89,10 +90,8 @@ class AddTransactionView: UIView {
         summTextField.clearButtonMode = .always
         summTextField.leftViewMode = .always
         summTextField.leftView = configureImage(type: "minus")
-        summTextField.font = .systemFont(ofSize: 20)
+        summTextField.font = UIFont.boldSystemFont(ofSize: 22)
         summTextField.keyboardType = .decimalPad
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
-        self.addGestureRecognizer(tap)
         addSubview(summTextField)
     }
 
@@ -126,107 +125,87 @@ class AddTransactionView: UIView {
         choiceCategoryButton.tag = 0
         self.addSubview(choiceCategoryButton)
     }
+    
     func configureNoteTextField() {
         noteTextField.placeholder = "  Введите описание"
         noteTextField.backgroundColor = UIColor.systemGray6
         noteTextField.layer.cornerRadius = 8
         noteTextField.clearButtonMode = .always
         noteTextField.leftViewMode = .always
-        //noteTextField.leftView = configureImage(type: "minus")
         noteTextField.font = .systemFont(ofSize: 20)
+        addSubview(noteTextField)
+    }
+    
+    func configureTapTextField() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
         self.addGestureRecognizer(tap)
-        addSubview(noteTextField)
     }
     
     func configureAddButton() {
         addButton.setTitle("Добавить", for: .normal)
         addButton.setTitleColor(.white, for: .normal)
         addButton.backgroundColor = .systemBlue
-        addButton.setTitleColor(.white, for: .selected)
+        addButton.setTitleColor(.gray, for: .highlighted)
+        addButton.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        addButton.imageView?.tintColor = .white
         addButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
         addButton.layer.cornerRadius = 8
         addButton.tag = 1
         self.addSubview(addButton)
+        addButton.setConstraintsForSize(width: nil, height: 40)
     }
     
-    //MARK: settings constraints
-
-    func setHeaderConstraints() {
-        header.setConstraintsForSizeTo(width: nil, height: 60)
-        header.setHorizontalConstraintsTo(superView: self, left: 0, right: 0)
-        header.setVerticalConstraintsTo(superView: self, top: 0, bottom: nil)
+    //MARK: settings stackviews
+    
+    func configureStackView() {
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.spacing = 24
+        stackView.addArrangedSubview(dateLabel)
+        stackView.addArrangedSubview(summStackView)
+        stackView.addArrangedSubview(categoryStackView)
+        stackView.addArrangedSubview(noteStackView)
+        stackView.addArrangedSubview(addButton)
+        stackView.setCenterXAnchor(superView: scrollView)
+        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 24).isActive = true
+        stackView.setConstraintsForWidthFrom(view: scrollView)
     }
     
-    func setHeaderLabelConstraints() {
-        headerLabel.setConstraintsForSizeTo(width: 200, height: 50)
-        headerLabel.centerYAnchor.constraint(equalTo: self.header.centerYAnchor).isActive = true
-        headerLabel.centerXAnchor.constraint(equalTo: self.header.centerXAnchor).isActive = true
+    func configureSummStackView() {
+        summStackView.axis = .vertical
+        summStackView.distribution = .fillEqually
+        summStackView.spacing = 16
+        summStackView.addArrangedSubview(summLabel)
+        summStackView.addArrangedSubview(summTextField)
+        summStackView.addArrangedSubview(typeButtonsStackView)
+        summStackView.setConstraintsForSize(width: nil, height: 150)
     }
     
-    func setSummLabelConstraints() {
-        summLabel.setConstraintsForSizeTo(width: summLabel.intrinsicContentSize.width, height: summLabel.intrinsicContentSize.height)
-        summLabel.setHorizontalConstraintsTo(superView: self, left: 16, right: nil)
-        summLabel.topAnchor.constraint(equalTo: self.header.bottomAnchor, constant: 32).isActive = true
+    func configureTypeButtonsStackView() {
+        self.addSubview(typeButtonsStackView)
+        typeButtonsStackView.axis = .horizontal
+        typeButtonsStackView.distribution = .fillEqually
+        typeButtonsStackView.spacing = 16
+        typeButtonsStackView.addArrangedSubview(expenseButton)
+        typeButtonsStackView.addArrangedSubview(incomeButton)
     }
     
-    func setSummFieldConstraints() {
-        summTextField.setConstraintsForSizeTo(width: nil, height: 50)
-        summTextField.setHorizontalConstraintsTo(superView: self, left: 16, right: 16)
-        summTextField.topAnchor.constraint(equalTo: self.summLabel.bottomAnchor, constant: 16).isActive = true
+    func configureCategoryStackView() {
+        categoryStackView.axis = .vertical
+        categoryStackView.distribution = .fillEqually
+        categoryStackView.spacing = 16
+        categoryStackView.addArrangedSubview(appointmentLabel)
+        categoryStackView.addArrangedSubview(choiceCategoryButton)
+        categoryStackView.setConstraintsForSize(width: nil, height: 100)
     }
     
-    func setAppointmentLabelConstraints() {
-        summTextField.setConstraintsForSizeTo(width: appointmentLabel.intrinsicContentSize.width, height: appointmentLabel.intrinsicContentSize.height)
-        summTextField.setHorizontalConstraintsTo(superView: self, left: 16, right: nil)
-        summTextField.topAnchor.constraint(equalTo: self.expenseButton.bottomAnchor, constant: 32).isActive = true
-    }
-    
-    
-    func setExpenseButtonConstraints() {
-        expenseButton.translatesAutoresizingMaskIntoConstraints = false
-        expenseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        expenseButton.topAnchor.constraint(equalTo: self.summTextField.bottomAnchor, constant: 16).isActive = true
-        expenseButton.leadingAnchor.constraint(equalTo: incomeButton.trailingAnchor, constant: 16).isActive = true
-        expenseButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-    }
-    
-    func setIncomeButtonConstraints() {
-        incomeButton.translatesAutoresizingMaskIntoConstraints = false
-        incomeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        incomeButton.widthAnchor.constraint(equalToConstant: 180).isActive = true
-        incomeButton.topAnchor.constraint(equalTo: self.summTextField.bottomAnchor, constant: 16).isActive = true
-        incomeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-    }
-    
-    func setChoiceCategoryButtonConstraints() {
-        choiceCategoryButton.translatesAutoresizingMaskIntoConstraints = false
-        choiceCategoryButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        choiceCategoryButton.topAnchor.constraint(equalTo: appointmentLabel.bottomAnchor, constant: 16).isActive = true
-        choiceCategoryButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        choiceCategoryButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-    }
-    
-    func setNoteLabelConstraints() {
-        noteLabel.translatesAutoresizingMaskIntoConstraints = false
-        noteLabel.widthAnchor.constraint(equalToConstant: noteLabel.intrinsicContentSize.width).isActive = true
-        noteLabel.heightAnchor.constraint(equalToConstant: noteLabel.intrinsicContentSize.height).isActive = true
-        noteLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        noteLabel.topAnchor.constraint(equalTo: self.choiceCategoryButton.bottomAnchor, constant: 32).isActive = true
-    }
-    
-    func setNoteTextFieldConstraints() {
-        noteTextField.setConstraintsForSizeTo(width: nil, height: 50)
-        noteTextField.setHorizontalConstraintsTo(superView: self, left: 16, right: 16)
-        noteTextField.topAnchor.constraint(equalTo: self.noteLabel.bottomAnchor, constant: 16).isActive = true
-    }
-    
-    func setAddButtonConstraints() {
-        addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        addButton.widthAnchor.constraint(equalToConstant: 180).isActive = true
-        addButton.topAnchor.constraint(equalTo: noteTextField.bottomAnchor, constant: 32).isActive = true
-        addButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+    func configureNoteStackView() {
+        noteStackView.axis = .vertical
+        noteStackView.distribution = .fillEqually
+        noteStackView.spacing = 16
+        noteStackView.addArrangedSubview(noteLabel)
+        noteStackView.addArrangedSubview(noteTextField)
+        noteStackView.setConstraintsForSize(width: nil, height: 100)
     }
     
     //MARK: ButtonsFunctions
@@ -252,50 +231,34 @@ class AddTransactionView: UIView {
         
     }
     
- 
     @objc func tapButton(sender: UIButton) {
         delegate?.tapButton(self, sender: sender)
     }
-    
     
     //MARK: initializing
     
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .systemBackground
-    
-        configureHeader()
-        setHeaderConstraints()
+        self.setupHeaderTo(view: self, title: "Добавить операцию", popViewController: true)
         
-        configureHeaderLabel()
-        setHeaderLabelConstraints()
-        
+        configureDateLabel()
+        configureScrollView()
         configureSummLabel()
-        setSummLabelConstraints()
-        
         configureSummTextField()
-        setSummFieldConstraints()
-        
         configureIncomeButton()
-        setIncomeButtonConstraints()
-        
         configureExpenseButton()
-        setExpenseButtonConstraints()
-    
         configureAppointmentLabel()
-        setAppointmentLabelConstraints()
-        
         configureChoiceCategoryButton()
-        setChoiceCategoryButtonConstraints()
-        
         configureNoteLabel()
-        setNoteLabelConstraints()
-        
         configureNoteTextField()
-        setNoteTextFieldConstraints()
-        
         configureAddButton()
-        setAddButtonConstraints()
+        configureTypeButtonsStackView()
+        configureSummStackView()
+        configureCategoryStackView()
+        configureNoteStackView()
+        configureStackView()
+        configureTapTextField()
     }
     
     required init?(coder: NSCoder) {

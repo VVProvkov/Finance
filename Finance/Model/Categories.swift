@@ -18,5 +18,13 @@ struct Categories {
     
     static func addNewCategory(category: Category) {
         self.categories.append(category)
+        print(category.name)
+        NotificationCenter.default.post(name: NSNotification.Name("addedNewCategory"), object: self)
+    }
+    
+    static func deleteCategory(category: Category, index: Int) {
+        self.categories.remove(at: index)
+        print(category.name)
+        NotificationCenter.default.post(name: NSNotification.Name("deletedCategory"), object: self)
     }
 }

@@ -8,70 +8,59 @@
 import UIKit
 
 class TransactionsViewController: UIViewController {
-    
-    
+
     var identifierCell = "Cell"
-    
     var transactionsTableView = UITableView()
-    var transactions = [Transaction]() {
+    var dates = [Date]() {
+        didSet {
+            transactionsTableView.reloadData()
+        }
+    }
+    var datesDictionary = [Date : [Transaction]]() {
         didSet {
             transactionsTableView.reloadData()
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.setupHeaderTo(view: self.view, title: "Все операции", popViewController: false)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let date = dateFormatter.date(from: "12.03.2021")
         
-        transactions.append(Transaction(note: "First", category: Categories.categories[0], summ: 300))
-        transactions.append(Transaction(note: "Second", category: Categories.categories[1], summ: 300))
-        transactions.append(Transaction(note: "Third", category: Categories.categories[2], summ: 300))
-        transactions.append(Transaction(note: "Four", category: Categories.categories[3], summ: 300))
+        DatesDictionary.addTransaction(transaction: Transaction(note: "First", category: Categories.categories[0], summ: 300, date: date!, type: .income))
+        DatesDictionary.addTransaction(transaction: Transaction(note: "Second", category: Categories.categories[1], summ: 800, date: date!, type: .expense))
+        DatesDictionary.addTransaction(transaction: Transaction(note: "Third", category: Categories.categories[2], summ: 200, date: date!, type: .income))
+        DatesDictionary.addTransaction(transaction: Transaction(note: "Four", category: Categories.categories[3], summ: 400, date: date!, type: .expense))
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("addedNewTransaction"), object: nil, queue: nil) { (notification) in
-            guard let newTransaction = Transactions.transactions.last else { return }
-            self.transactions.append(newTransaction)
-            
+        self.datesDictionary = DatesDictionary.datesDictionary
+        self.dates = DatesDictionary.dates
+        
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("addedDateTransaction"), object: nil, queue: nil) {
+            (notification) in
+            self.datesDictionary = DatesDictionary.datesDictionary
+            self.dates = DatesDictionary.dates
         }
         
-        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("deletedDateTransaction"), object: nil, queue: nil) { (notification) in
+            self.datesDictionary = DatesDictionary.datesDictionary
+            self.dates = DatesDictionary.dates
+        }
+
         view.backgroundColor = .systemBackground
-        transactionsTableView = UITableView(frame: CGRect(x: 0 , y: 0 , width: self.view.bounds.width, height: self.view.bounds.height), style: .plain)
-  
         transactionsTableView.delegate = self
         transactionsTableView.dataSource = self
         self.view.addSubview(transactionsTableView)
-        
-        
         transactionsTableView.register(TransactionsTableViewCell.self, forCellReuseIdentifier: identifierCell)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        transactionsTableView.reloadData()
-    }
-    
-    
-    
+
     override func viewWillLayoutSubviews() {
-        transactionsTableView.pin(to: self.view)
+        transactionsTableView.setVerticalConstraintsTo(superView: self.view, top: 60, bottom: 0)
+        transactionsTableView.setHorizontalConstraintsTo(superView: self.view, left: 0, right: 0)
     }
-
-
-}
-
-
-extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        transactions.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = transactionsTableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath) as! TransactionsTableViewCell
-        let transaction = transactions[indexPath.row]
-        cell.set(transaction: transaction )
-        return cell
-    }
-
 }
+
 

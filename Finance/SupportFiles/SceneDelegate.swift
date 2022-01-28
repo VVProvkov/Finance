@@ -24,10 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func  createTabBarController() -> UITabBarController {
         let transactionsVC = TransactionsViewController()
-        transactionsVC.tabBarItem = UITabBarItem(title: "list", image: UIImage(systemName: "list.bullet.circle"), selectedImage: UIImage(systemName: "list.bullet.circle.fill"))
+        transactionsVC.tabBarItem = UITabBarItem(title: "Все операции", image: UIImage(systemName: "list.bullet.circle"), selectedImage: UIImage(systemName: "list.bullet.circle.fill"))
         
         let analyticsVC = AnalyticsViewController()
-        analyticsVC.tabBarItem = UITabBarItem(title: "analytic", image: UIImage(systemName: "chart.pie"), selectedImage: UIImage(systemName: "chart.pie.fill"))
+        analyticsVC.tabBarItem = UITabBarItem(title: "Аналитика", image: UIImage(systemName: "chart.pie"), selectedImage: UIImage(systemName: "chart.pie.fill"))
         
         let tabBarVC = TabBarViewController()
         tabBarVC.tabBar.backgroundColor = .white

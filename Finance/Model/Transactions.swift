@@ -15,6 +15,5 @@ struct Transactions {
         NotificationCenter.default.post(name: NSNotification.Name("addedNewTransaction"), object: self)
     }
     
-    
 
 }

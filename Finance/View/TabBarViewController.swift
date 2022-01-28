@@ -20,13 +20,10 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
-        drawTabBar()
         setupMiddleButton()
     }
-    
-    
-    //create middle button
+
+    //MARK: create middle button
     
     func setupMiddleButton() {
         middleButton.setBackgroundImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
@@ -36,7 +33,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     @objc func menuButtonAction(sender: UIButton) {
         let addTransactionVC = AddTransactionViewController()
-        
         let addTransactionNVC = UINavigationController(rootViewController: addTransactionVC)
         self.present(addTransactionNVC, animated: true, completion: nil)
     }
@@ -44,6 +40,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         middleButton.frame = CGRect(x: self.view.bounds.width/2 - 23, y: self.view.bounds.height - self.view.safeAreaInsets.bottom - 60, width: 46, height: 46)
+        drawTabBar()
     }
 
 }
@@ -83,7 +80,6 @@ extension TabBarViewController {
         circleLayer.strokeColor = UIColor.lightGray.cgColor
         circleLayer.fillColor = UIColor.white.cgColor
         circleLayer.lineWidth = 0.5
-
 
         if let oldShapeLayer = self.shapeLayer {
             self.tabBar.layer.replaceSublayer(oldShapeLayer, with: shapeLayer)

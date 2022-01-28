@@ -10,12 +10,15 @@ import Foundation
 struct Transaction {
     var note: String
     var summ: Int
-    unowned var category: Category
-    
+    var category: Category
+    var date: Date
+    var type: TypeTransaction
 
-    init(note: String, category: Category, summ: Int) {
+    init(note: String, category: Category, summ: Int, date: Date, type: TypeTransaction) {
         self.note = note
         self.category = category
         self.summ = summ
+        self.date = date
+        self.type = type
     }
 }

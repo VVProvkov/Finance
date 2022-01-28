@@ -8,6 +8,6 @@
 import Foundation
 import UIKit
 
-protocol ButtonDelegate: AnyObject {
+protocol AddTransactionButtonDelegate: AnyObject {
     func tapButton(_ view: AddTransactionView, sender: UIButton)
 }
