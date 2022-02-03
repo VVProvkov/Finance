@@ -75,13 +75,13 @@ class ContentAnaliticsViewController: UIViewController {
 
     }
     
-    init(transactionsAnaliticsData: TransactionsAnaliticsData) {
+    init(analiticsByMonth: AnaliticsByMonth) {
         super.init(nibName: nil, bundle: nil)
         configureTotalPerMonthStackView()
         configureAveragePerDayStackView()
         configureStackView()
-        averagePerDayValue.text = "\(transactionsAnaliticsData.totalIncomes) ₽"
-        totalPerMonthValue.text = "\(transactionsAnaliticsData.totalExpences) ₽"
+        averagePerDayValue.text = "\(analiticsByMonth.averagePerDayValue) ₽"
+        totalPerMonthValue.text = "\(analiticsByMonth.totalPerMonthValue) ₽"
     }
     
     required init?(coder: NSCoder) {

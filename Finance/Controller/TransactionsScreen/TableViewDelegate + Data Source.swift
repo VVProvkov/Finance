@@ -31,10 +31,8 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
         let date = self.dates[section]
-        if let transactions = self.datesDictionary[date] {
-            return transactions.count
-        }
-        return 0
+        let transactions = self.transactions.filter { $0.date == date }
+        return transactions.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -45,7 +43,7 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         let cell = transactionsTableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath) as! TransactionsTableViewCell
         
         let date = self.dates[indexPath.section]
-        guard let transactions = self.datesDictionary[date] else { return UITableViewCell()}
+        let transactions = self.transactions.filter { $0.date == date }
         let transaction = transactions[indexPath.row]
         
         cell.set(transaction: transaction)
@@ -61,10 +59,10 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { action, view, completion in
-            let date = DatesDictionary.dates[indexPath.section]
-            guard let transactions = self.datesDictionary[date] else { return }
+            let date = self.dates[indexPath.section]
+            let transactions = self.transactions.filter { $0.date == date }
             let transaction = transactions[indexPath.row]
-            DatesDictionary.deleteTransaction(transaction: transaction, index: indexPath.row)
+            Transactions.shared.deleteTransaction(transaction: transaction)
         }
         action.backgroundColor = .systemRed
         action.image = UIImage(systemName: "trash")

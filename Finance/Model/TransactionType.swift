@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TypeTransaction {
-    case expense
-    case income
+enum TypeTransaction: Int16 {
+    case expense = 0
+    case income = 1
 }

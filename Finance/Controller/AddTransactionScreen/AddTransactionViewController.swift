@@ -54,9 +54,9 @@ extension AddTransactionViewController: AddTransactionButtonDelegate {
             let summ = Int(summString) ?? 0
             let note = view.noteTextField.text ?? ""
             let date = view.todaysDate
-            var type = view.expenseButton.isSelected ? TypeTransaction.expense : .income
+            let type = view.expenseButton.isSelected ? TypeTransaction.expense : .income
             let newTransaction = Transaction(note: note, category: selectedCategory, summ: summ, date: date, type: type)
-            DatesDictionary.addTransaction(transaction: newTransaction)
+            Transactions.shared.addNewTransaction(transaction: newTransaction)
             self.dismiss(animated: true, completion: nil)
         }
     }
