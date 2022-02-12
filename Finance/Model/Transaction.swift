@@ -22,27 +22,23 @@ struct Transaction: Hashable {
     var category: Category
     var date: Date
     var type: TypeTransaction
-    var identifier: Int
-    private static var identifierFactory = 0
-    private static func getUnigueIdentifier() -> Int {
-        identifierFactory += 1
-        return identifierFactory
-    }
-    
+    var identifier: String
+
     init(note: String, category: Category, summ: Int, date: Date, type: TypeTransaction) {
         self.note = note
         self.category = category
         self.summ = summ
         self.date = date
         self.type = type
-        self.identifier = Transaction.getUnigueIdentifier()
+        self.identifier = UUID().uuidString
     }
     
-    init(entity: TransactionEntity) {
+    init(entity: TransactionEntity, category: Category) {
         self.note = entity.note ?? ""
         self.summ = Int(entity.summ)
         self.date = entity.date ?? Date()
         self.type = entity.type
-        self.identifier = Int(entity.identifier)
+        self.identifier = entity.identifier!
+        self.category = category
     }
 }

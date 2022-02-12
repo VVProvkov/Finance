@@ -15,4 +15,9 @@ class Category {
         self.name = name
         self.emoji = emoji
     }
+    
+    init(entity: CategoryEntity) {
+        self.name = entity.name ?? ""
+        self.emoji = entity.emoji ?? ""
+    }
 }

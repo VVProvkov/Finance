@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CategoryEntity" representedClassName=".CategoryEntity" syncable="YES" codeGenerationType="category">
-        <attribute name="emoji" optional="YES" attributeType="String"/>
+        <attribute name="emoji" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TransactionEntity" inverseName="category" inverseEntity="TransactionEntity"/>
     </entity>
@@ -9,12 +9,12 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="identifier" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
-        <attribute name="summ" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="summ" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="typeTransaction" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CategoryEntity" inverseName="transactions" inverseEntity="CategoryEntity"/>
+        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="transactions" inverseEntity="CategoryEntity"/>
     </entity>
     <elements>
-        <element name="CategoryEntity" positionX="-802.375" positionY="1990.875" width="128" height="88"/>
-        <element name="TransactionEntity" positionX="-379.828125" positionY="1946.15625" width="128" height="119"/>
+        <element name="CategoryEntity" positionX="-814.671875" positionY="1740.68359375" width="128" height="88"/>
+        <element name="TransactionEntity" positionX="-537.0703125" positionY="1750.01953125" width="128" height="133"/>
     </elements>
 </model>

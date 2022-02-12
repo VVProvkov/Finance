@@ -54,6 +54,16 @@ class AddTransactionView: UIView {
         let dateComponentsFromCurrentDate = calendar.dateComponents([.year, .month, .day], from: date)
         date = calendar.date(from: dateComponentsFromCurrentDate) ?? Date()
         let dateString = date.dateToString()
+        
+        //var testDateString = "21.08.2022"
+        
+        //var dateFormatter = DateFormatter()
+        //dateFormatter.dateFormat = "dd.MM.yyyy"
+        //dateFormatter.locale = Locale.current
+        
+        //var testDate = dateFormatter.date(from: testDateString)
+        
+        
         self.todaysDate = date
         dateLabel.text = "Дата: \(dateString)"
         dateLabel.textAlignment = .center

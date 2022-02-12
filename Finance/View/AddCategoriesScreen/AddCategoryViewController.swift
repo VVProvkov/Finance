@@ -1,5 +1,5 @@
 //
-//  AddCategoryView.swift
+//  AddCategpryViewController.swift
 //  Finance
 //
 //  Created by Vadim on 13.01.2022.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-class AddCategoryView: UIView {
-    
+class AddCategoryViewController: UIViewController {
+
+    var category: Category?
     var categoryStackView = UIStackView()
     var addCategoryButton = UIButton()
     weak var delegate: AddCategoryButtonDelegate?
@@ -34,8 +35,8 @@ class AddCategoryView: UIView {
     }
     
     func configureTapTextField() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing))
-        self.addGestureRecognizer(tap)
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        self.view.addGestureRecognizer(tap)
     }
     
     func configureAddCategoryButton() {
@@ -48,11 +49,20 @@ class AddCategoryView: UIView {
         addCategoryButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
         addCategoryButton.layer.cornerRadius = 8
         addCategoryButton.setConstraintsForSize(width: 160, height: 40)
-        addCategoryButton.setCenterXAnchor(superView: self)
+        addCategoryButton.setCenterXAnchor(superView: self.view)
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "", message: "Заполнены не все поля", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func tapButton() {
+        guard nameTextField.text != "", symbolTextField.text != "" else { return showAlert() }
         delegate?.tapButton(self)
+        self.dismiss(animated: true)
     }
     
 
@@ -63,15 +73,16 @@ class AddCategoryView: UIView {
         categoryStackView.addArrangedSubview(nameTextField)
         categoryStackView.addArrangedSubview(symbolTextField)
         categoryStackView.addArrangedSubview(addCategoryButton)
-        self.addSubview(categoryStackView)
-        categoryStackView.setHorizontalConstraintsTo(superView: self, left: 8, right: 8)
-        categoryStackView.setVerticalConstraintsTo(superView: self, top: 80, bottom: nil)
+        self.view.addSubview(categoryStackView)
+        categoryStackView.setHorizontalConstraintsTo(superView: self.view, left: 8, right: 8)
+        categoryStackView.setVerticalConstraintsTo(superView: self.view, top: 80, bottom: nil)
     }
 
-    init() {
-        super.init(frame: .zero)
-        self.backgroundColor = .systemBackground
-        self.setupHeaderTo(view: self, title: "Добавить категорию", popViewController: true)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.setupHeaderTo(view: self.view, title: "Добавить категорию", popViewController: true)
+        self.view.backgroundColor = .systemBackground
         configureNameTextField()
         configureSymbolTextField()
         configureStackView()
@@ -79,10 +90,6 @@ class AddCategoryView: UIView {
         configureTapTextField()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
+    
 }
-
-
-

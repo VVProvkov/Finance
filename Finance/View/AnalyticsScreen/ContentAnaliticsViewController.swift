@@ -9,6 +9,16 @@ import UIKit
 
 class ContentAnaliticsViewController: UIViewController {
     
+
+    var monthLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Arial-BoldMT", size: 32)
+        label.textColor = .systemBlue
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
+    
     var totalPerMonthValue: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Arial-BoldMT", size: 32)
@@ -39,34 +49,41 @@ class ContentAnaliticsViewController: UIViewController {
     
     let averagePerDayStackView = UIStackView()
     let totalPerMonthStackView = UIStackView()
+    let infoStackView = UIStackView()
     let stackView = UIStackView()
     
-    
-    func configureAveragePerDayStackView(){
+    func configureAveragePerDayStackView() {
         averagePerDayStackView.axis = .vertical
         averagePerDayStackView.addArrangedSubview(averagePerDayValue)
         averagePerDayStackView.addArrangedSubview(averagePerDay)
     }
     
-    func configureTotalPerMonthStackView(){
+    func configureTotalPerMonthStackView() {
         totalPerMonthStackView.axis = .vertical
         totalPerMonthStackView.addArrangedSubview(totalPerMonthValue)
         totalPerMonthStackView.addArrangedSubview(totalPerMonth)
     }
     
+    func configureInfoStackView() {
+        infoStackView.axis = .horizontal
+        infoStackView.addArrangedSubview(totalPerMonthStackView)
+        infoStackView.addArrangedSubview(averagePerDayStackView)
+    }
+    
     func configureStackView() {
-        stackView.addArrangedSubview(averagePerDayStackView)
-        stackView.addArrangedSubview(totalPerMonthStackView)
+        stackView.axis = .vertical
+        stackView.addArrangedSubview(monthLabel)
+        stackView.addArrangedSubview(infoStackView)
         stackView.layer.cornerRadius = 16
         stackView.backgroundColor = .systemBackground
-        stackView.distribution = .fillEqually
-        stackView.spacing = 16
+        //stackView.distribution = .fillEqually
+        stackView.spacing = 26
         stackView.layoutMargins = UIEdgeInsets(top: 10, left: 16, bottom: 16, right: 16)
         stackView.isLayoutMarginsRelativeArrangement = true
         self.view.addSubview(stackView)
-        stackView.setConstraintsForSize(width: nil, height: 120)
+        stackView.setConstraintsForSize(width: nil, height: 150)
         stackView.setHorizontalConstraintsTo(superView: self.view, left: 32, right: 32)
-        stackView.setVerticalConstraintsTo(superView: self.view, top: 32, bottom: nil)
+        stackView.setVerticalConstraintsTo(superView: self.view, top: 64, bottom: nil)
     }
 
 
@@ -77,9 +94,12 @@ class ContentAnaliticsViewController: UIViewController {
     
     init(analiticsByMonth: AnaliticsByMonth) {
         super.init(nibName: nil, bundle: nil)
+        
         configureTotalPerMonthStackView()
         configureAveragePerDayStackView()
+        configureInfoStackView()
         configureStackView()
+        self.monthLabel.text = analiticsByMonth.month
         averagePerDayValue.text = "\(analiticsByMonth.averagePerDayValue) ₽"
         totalPerMonthValue.text = "\(analiticsByMonth.totalPerMonthValue) ₽"
     }

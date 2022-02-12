@@ -16,7 +16,7 @@ class MonthsFromDatesOfTransactionsHelper {
         var numDate: Int = 0
         var strDate = ""
         
-        for var date in dates {
+        for date in dates {
             let calendareDate = Calendar.current.dateComponents([.month], from: date)
             numDate = calendareDate.month ?? 13
             switch numDate {
@@ -39,6 +39,4 @@ class MonthsFromDatesOfTransactionsHelper {
         }
         return months
     }
-    
-
 }

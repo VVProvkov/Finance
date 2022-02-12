@@ -24,7 +24,7 @@ class TransactionEntity: NSManagedObject {
         
         let request: NSFetchRequest<TransactionEntity> =
         TransactionEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "identifier == %d", transaction.identifier)
+        request.predicate = NSPredicate(format: "identifier == %@", transaction.identifier)
         
         do {
             let fetchResult =  try context.fetch(request)
@@ -34,7 +34,7 @@ class TransactionEntity: NSManagedObject {
             }
             if let categoryEntity = try? CategoryEntity.find(categoryName: transaction.category.name, context: context) {
                 let transactionEntity = TransactionEntity(context: context)
-                transactionEntity.identifier = Int16(transaction.identifier)
+                transactionEntity.identifier = transaction.identifier
                 transactionEntity.summ = Int32(transaction.summ)
                 transactionEntity.type = transaction.type
                 transactionEntity.date = transaction.date
@@ -58,4 +58,5 @@ class TransactionEntity: NSManagedObject {
             throw error
         }
     }
+    
 }

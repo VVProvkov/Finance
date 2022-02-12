@@ -10,6 +10,11 @@ import UIKit
 
 extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    override func viewWillLayoutSubviews() {
+        transactionsTableView.setVerticalConstraintsTo(superView: self.view, top: 60, bottom: 0)
+        transactionsTableView.setHorizontalConstraintsTo(superView: self.view, left: 0, right: 0)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.dates.count
     }
@@ -62,7 +67,8 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
             let date = self.dates[indexPath.section]
             let transactions = self.transactions.filter { $0.date == date }
             let transaction = transactions[indexPath.row]
-            Transactions.shared.deleteTransaction(transaction: transaction)
+            self.transactions.remove(at: indexPath.row)
+            self.coreDataManager.delete(transaction: transaction)
         }
         action.backgroundColor = .systemRed
         action.image = UIImage(systemName: "trash")

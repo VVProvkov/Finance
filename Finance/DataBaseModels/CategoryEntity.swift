@@ -14,6 +14,7 @@ class CategoryEntity: NSManagedObject {
       
         if let categoryEntity = try? CategoryEntity.find(categoryName: category.name, context: context) {
             return categoryEntity
+            
         } else {
         let entity = CategoryEntity(context: context)
         entity.name = category.name
@@ -21,6 +22,7 @@ class CategoryEntity: NSManagedObject {
         return entity
         }
     }
+    
     
     class func find(categoryName: String, context: NSManagedObjectContext) throws -> CategoryEntity? {
         let request: NSFetchRequest<CategoryEntity> = CategoryEntity
@@ -37,4 +39,16 @@ class CategoryEntity: NSManagedObject {
         }
         return nil
     }
+    
+    
+    class func all(_ context: NSManagedObjectContext) throws -> [CategoryEntity] {
+        let request: NSFetchRequest<CategoryEntity> =
+        CategoryEntity.fetchRequest()
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            throw error
+        }
+    }  
 }

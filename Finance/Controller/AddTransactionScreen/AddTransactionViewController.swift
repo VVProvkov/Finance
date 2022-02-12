@@ -10,7 +10,8 @@ import UIKit
 class AddTransactionViewController: UIViewController {
 
     var addTransactionView = AddTransactionView()
-    var transaction: Transaction?
+    var delegate: AddTransactionToTransactionsDelegate?
+    
     var selectedCategory: Category? {
         didSet {
             addTransactionView.choiceCategoryButton.setTitle("\(selectedCategory!.emoji) \(selectedCategory!.name)", for: .normal)
@@ -55,8 +56,8 @@ extension AddTransactionViewController: AddTransactionButtonDelegate {
             let note = view.noteTextField.text ?? ""
             let date = view.todaysDate
             let type = view.expenseButton.isSelected ? TypeTransaction.expense : .income
-            let newTransaction = Transaction(note: note, category: selectedCategory, summ: summ, date: date, type: type)
-            Transactions.shared.addNewTransaction(transaction: newTransaction)
+            let transaction = Transaction(note: note, category: selectedCategory, summ: summ, date: date, type: type)
+            delegate?.tapButton(transaction)
             self.dismiss(animated: true, completion: nil)
         }
     }

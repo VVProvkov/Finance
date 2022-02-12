@@ -44,7 +44,7 @@ extension UIView {
     func setVerticalConstraintsTo(superView view: UIView, top: CGFloat?, bottom: CGFloat?) {
         translatesAutoresizingMaskIntoConstraints = false
         if let top = top { topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: top).isActive = true }
-        if let bottom = bottom { bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: bottom).isActive = true }
+        if let bottom = bottom { bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -bottom).isActive = true }
     }
     
     func setHorizontalConstraintsTo(superView view: UIView, left: CGFloat?, right: CGFloat?) {
@@ -52,9 +52,7 @@ extension UIView {
         if let left = left { leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: left).isActive = true }
         if let right = right { trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -(right)).isActive = true }
     }
-    
-    
-    
+
     func setVerticalConstraintsFrom(view: UIView, top: CGFloat?, bottom: CGFloat?) {
         translatesAutoresizingMaskIntoConstraints = false
         if let top = top { topAnchor.constraint(equalTo: view.bottomAnchor, constant: top).isActive = true }
@@ -75,9 +73,7 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
-    
-    
-    
+
     func setupHeaderTo(view: UIView, title: String, popViewController popVC: Bool) {
         let header = UIView()
         header.backgroundColor = .systemBackground
@@ -100,14 +96,6 @@ extension UIView {
             header.setVerticalConstraintsTo(superView: view, top: 0, bottom: nil)
             headerLabel.font = UIFont.boldSystemFont(ofSize: 32)
         }
-
-    }
-    
-    
-    
-    
-    
-    
-    
+    }  
 }
 

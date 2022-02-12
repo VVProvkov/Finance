@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol AddCategoryButtonDelegate: AnyObject {
-    func tapButton(_ view: AddCategoryView)
+    func tapButton(_ view: AddCategoryViewController)
 }
