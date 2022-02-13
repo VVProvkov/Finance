@@ -12,6 +12,8 @@
 		DD0EF89027916F5B0083AADF /* DidChangedTypeTrtansactionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EF88F27916F5B0083AADF /* DidChangedTypeTrtansactionsDelegate.swift */; };
 		DD1F4CA427A441B600833587 /* DatesOfTransactionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1F4CA327A441B600833587 /* DatesOfTransactionsHelper.swift */; };
 		DD24A94627AD5FB900C309E7 /* AddTransactionButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD24A94527AD5FB900C309E7 /* AddTransactionButtonDelegate.swift */; };
+		DD25DD0027B90C5E00C01768 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD25DCFF27B90C5E00C01768 /* AddTransactionViewController.swift */; };
+		DD25DD0227B90CA600C01768 /* setHeaderForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD25DD0127B90CA600C01768 /* setHeaderForView.swift */; };
 		DD2AD83D27AA8D6900416CFA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AD83C27AA8D6900416CFA /* CoreDataManager.swift */; };
 		DD2AD84327AAAA3600416CFA /* TransactionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AD84227AAAA3600416CFA /* TransactionEntity.swift */; };
 		DD2AD84527AAAA5000416CFA /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2AD84427AAAA5000416CFA /* CategoryEntity.swift */; };
@@ -37,15 +39,14 @@
 		DDC9ADC927A81D4E00B1F216 /* NamesOfMonths.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9ADC827A81D4E00B1F216 /* NamesOfMonths.swift */; };
 		DDC9ADCB27A81EE400B1F216 /* TransactionsByOneMonthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9ADCA27A81EE400B1F216 /* TransactionsByOneMonthHelper.swift */; };
 		DDC9ADCD27A82DC400B1F216 /* AddCategoryButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9ADCC27A82DC400B1F216 /* AddCategoryButtonDelegate.swift */; };
-		DDCF968C2794345100DE0FF6 /* Date+ ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF968B2794345100DE0FF6 /* Date+ ext.swift */; };
+		DDCF968C2794345100DE0FF6 /* DateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF968B2794345100DE0FF6 /* DateToString.swift */; };
 		DDD757EF27B3B21900535389 /* extension + TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD757EE27B3B21900535389 /* extension + TabBar.swift */; };
 		DDE7C057275F3C4B00282299 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C056275F3C4B00282299 /* AppDelegate.swift */; };
 		DDE7C059275F3C4B00282299 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C058275F3C4B00282299 /* SceneDelegate.swift */; };
 		DDE7C060275F3C4D00282299 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE7C05F275F3C4D00282299 /* Assets.xcassets */; };
-		DDE7C078275F408600282299 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C077275F408600282299 /* UIView+Ext.swift */; };
+		DDE7C078275F408600282299 /* setConstraintsForView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C077275F408600282299 /* setConstraintsForView.swift */; };
 		DDE7C080275F451300282299 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C07F275F451200282299 /* TransactionsViewController.swift */; };
 		DDE7C082275F452E00282299 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C081275F452E00282299 /* TabBarViewController.swift */; };
-		DDE7C084275F453500282299 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C083275F453500282299 /* AddTransactionViewController.swift */; };
 		DDE7C086275F453800282299 /* TransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C085275F453800282299 /* TransactionsTableViewCell.swift */; };
 		DDE7C088275F453D00282299 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C087275F453D00282299 /* AnalyticsViewController.swift */; };
 		DDE7C08A275F453F00282299 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE7C089275F453F00282299 /* Transaction.swift */; };
@@ -57,6 +58,8 @@
 		DD0EF88F27916F5B0083AADF /* DidChangedTypeTrtansactionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidChangedTypeTrtansactionsDelegate.swift; sourceTree = "<group>"; };
 		DD1F4CA327A441B600833587 /* DatesOfTransactionsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesOfTransactionsHelper.swift; sourceTree = "<group>"; };
 		DD24A94527AD5FB900C309E7 /* AddTransactionButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionButtonDelegate.swift; sourceTree = "<group>"; };
+		DD25DCFF27B90C5E00C01768 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		DD25DD0127B90CA600C01768 /* setHeaderForView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setHeaderForView.swift; sourceTree = "<group>"; };
 		DD2AD83C27AA8D6900416CFA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DD2AD84227AAAA3600416CFA /* TransactionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEntity.swift; sourceTree = "<group>"; };
 		DD2AD84427AAAA5000416CFA /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
@@ -82,17 +85,16 @@
 		DDC9ADC827A81D4E00B1F216 /* NamesOfMonths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesOfMonths.swift; sourceTree = "<group>"; };
 		DDC9ADCA27A81EE400B1F216 /* TransactionsByOneMonthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsByOneMonthHelper.swift; sourceTree = "<group>"; };
 		DDC9ADCC27A82DC400B1F216 /* AddCategoryButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryButtonDelegate.swift; sourceTree = "<group>"; };
-		DDCF968B2794345100DE0FF6 /* Date+ ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ ext.swift"; sourceTree = "<group>"; };
+		DDCF968B2794345100DE0FF6 /* DateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToString.swift; sourceTree = "<group>"; };
 		DDD757EE27B3B21900535389 /* extension + TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension + TabBar.swift"; sourceTree = "<group>"; };
 		DDE7C053275F3C4B00282299 /* Finance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE7C056275F3C4B00282299 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDE7C058275F3C4B00282299 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDE7C05F275F3C4D00282299 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDE7C064275F3C4D00282299 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDE7C077275F408600282299 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		DDE7C077275F408600282299 /* setConstraintsForView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setConstraintsForView.swift; sourceTree = "<group>"; };
 		DDE7C07F275F451200282299 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		DDE7C081275F452E00282299 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		DDE7C083275F453500282299 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		DDE7C085275F453800282299 /* TransactionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsTableViewCell.swift; sourceTree = "<group>"; };
 		DDE7C087275F453D00282299 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		DDE7C089275F453F00282299 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -130,9 +132,13 @@
 		DD1F4CA527A445F500833587 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DD7423F02799A67B00780C31 /* AnaliticsByMonth.swift */,
 				DD1F4CA327A441B600833587 /* DatesOfTransactionsHelper.swift */,
 				DDC9ADC427A7F45300B1F216 /* MonthsFromTransactionsHelper.swift */,
 				DDC9ADCA27A81EE400B1F216 /* TransactionsByOneMonthHelper.swift */,
+				DDE7C077275F408600282299 /* setConstraintsForView.swift */,
+				DD25DD0127B90CA600C01768 /* setHeaderForView.swift */,
+				DDCF968B2794345100DE0FF6 /* DateToString.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -150,8 +156,9 @@
 		DD30EF0527902129005F32DB /* CategoriesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DD550E2D276F54D900CBEC51 /* CategoriesTableViewCell.swift */,
-				DD30EF03279020DC005F32DB /* AddCategoryTableViewCell.swift */,
+				DDADFA5727B904F1005D756A /* Model */,
+				DDADFA5927B904F1005D756A /* View */,
+				DDADFA5827B904F1005D756A /* Controller */,
 			);
 			path = CategoriesScreen;
 			sourceTree = "<group>";
@@ -159,32 +166,11 @@
 		DD30EF0627903779005F32DB /* AddCategoriesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DD30EF08279037BD005F32DB /* AddCategoryViewController.swift */,
-				DD0EF88D27916F080083AADF /* EmojiTextField.swift */,
+				DDADFA5A27B904F4005D756A /* Model */,
+				DDADFA5B27B904F4005D756A /* View */,
+				DDADFA5C27B904F4005D756A /* Controller */,
 			);
 			path = AddCategoriesScreen;
-			sourceTree = "<group>";
-		};
-		DD4C53762778AED80050A6E9 /* CategoriesScreen */ = {
-			isa = PBXGroup;
-			children = (
-				DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */,
-				DDAFB25227B2C2720022BC26 /* extension + TableViewDelegate, DataSource.swift */,
-			);
-			path = CategoriesScreen;
-			sourceTree = "<group>";
-		};
-		DD6996B427650A8300144B4B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DD6996B827650B0600144B4B /* TransactionsScreen */,
-				DD6996B727650AEF00144B4B /* AddTransactionScreen */,
-				DD30EF0527902129005F32DB /* CategoriesScreen */,
-				DD30EF0627903779005F32DB /* AddCategoriesScreen */,
-				DD6996B927650B1E00144B4B /* AnalyticsScreen */,
-				DDE7C076275F408600282299 /* extensions */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		DD6996B527650AA100144B4B /* Model */ = {
@@ -193,29 +179,18 @@
 				DD6CD4AB2769F6A5001BB53F /* Category.swift */,
 				DDE7C089275F453F00282299 /* Transaction.swift */,
 				DD80A39C2796D52900A269F1 /* TransactionType.swift */,
-				DD7423F02799A67B00780C31 /* AnaliticsByMonth.swift */,
 				DDC9ADC627A81B0000B1F216 /* Month.swift */,
 				DDC9ADC827A81D4E00B1F216 /* NamesOfMonths.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DD6996B627650ADB00144B4B /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				DD6CD4B1276B43CA001BB53F /* TransactionsScreen */,
-				DD6CD4B0276B4385001BB53F /* AddTransactionScreen */,
-				DD4C53762778AED80050A6E9 /* CategoriesScreen */,
-				DD6CD4AF276B436D001BB53F /* AnalyticsScreen */,
-				DDD757ED27B3B1EA00535389 /* TabBar */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		DD6996B727650AEF00144B4B /* AddTransactionScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DD6996B22763CA1100144B4B /* AddTransactionView.swift */,
+				DDADFA5427B904EB005D756A /* Model */,
+				DDADFA5527B904EB005D756A /* View */,
+				DDADFA5627B904EB005D756A /* Controller */,
 			);
 			path = AddTransactionScreen;
 			sourceTree = "<group>";
@@ -223,7 +198,9 @@
 		DD6996B827650B0600144B4B /* TransactionsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DDE7C085275F453800282299 /* TransactionsTableViewCell.swift */,
+				DDADFA5127B904A5005D756A /* Model */,
+				DDADFA5227B904B0005D756A /* View */,
+				DDADFA5327B904B6005D756A /* Controller */,
 			);
 			path = TransactionsScreen;
 			sourceTree = "<group>";
@@ -231,36 +208,11 @@
 		DD6996B927650B1E00144B4B /* AnalyticsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DD80A39A2796C59000A269F1 /* AnaliticsView.swift */,
-				DD80A3A02797087500A269F1 /* ContentAnaliticsViewController.swift */,
+				DDADFA5D27B904F7005D756A /* Model */,
+				DDADFA5F27B904F7005D756A /* View */,
+				DDADFA5E27B904F7005D756A /* Controller */,
 			);
 			path = AnalyticsScreen;
-			sourceTree = "<group>";
-		};
-		DD6CD4AF276B436D001BB53F /* AnalyticsScreen */ = {
-			isa = PBXGroup;
-			children = (
-				DDE7C087275F453D00282299 /* AnalyticsViewController.swift */,
-				DD80A39E2797083400A269F1 /* AnalitycsPageViewController.swift */,
-			);
-			path = AnalyticsScreen;
-			sourceTree = "<group>";
-		};
-		DD6CD4B0276B4385001BB53F /* AddTransactionScreen */ = {
-			isa = PBXGroup;
-			children = (
-				DDE7C083275F453500282299 /* AddTransactionViewController.swift */,
-			);
-			path = AddTransactionScreen;
-			sourceTree = "<group>";
-		};
-		DD6CD4B1276B43CA001BB53F /* TransactionsScreen */ = {
-			isa = PBXGroup;
-			children = (
-				DDE7C07F275F451200282299 /* TransactionsViewController.swift */,
-				DD0B54C127A13E38001611F7 /* extension + Data Source.swift */,
-			);
-			path = TransactionsScreen;
 			sourceTree = "<group>";
 		};
 		DD6CD4B6276B89B1001BB53F /* Protocols */ = {
@@ -285,6 +237,126 @@
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
+		DDADFA5127B904A5005D756A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDADFA5227B904B0005D756A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDE7C085275F453800282299 /* TransactionsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDADFA5327B904B6005D756A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDE7C07F275F451200282299 /* TransactionsViewController.swift */,
+				DD0B54C127A13E38001611F7 /* extension + Data Source.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDADFA5427B904EB005D756A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDADFA5527B904EB005D756A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD6996B22763CA1100144B4B /* AddTransactionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDADFA5627B904EB005D756A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD25DCFF27B90C5E00C01768 /* AddTransactionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDADFA5727B904F1005D756A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDADFA5827B904F1005D756A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD509C30276DEDA800801DA7 /* CategoriesTableViewController.swift */,
+				DDAFB25227B2C2720022BC26 /* extension + TableViewDelegate, DataSource.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDADFA5927B904F1005D756A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD550E2D276F54D900CBEC51 /* CategoriesTableViewCell.swift */,
+				DD30EF03279020DC005F32DB /* AddCategoryTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDADFA5A27B904F4005D756A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDADFA5B27B904F4005D756A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD30EF08279037BD005F32DB /* AddCategoryViewController.swift */,
+				DD0EF88D27916F080083AADF /* EmojiTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDADFA5C27B904F4005D756A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDADFA5D27B904F7005D756A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDADFA5E27B904F7005D756A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDE7C087275F453D00282299 /* AnalyticsViewController.swift */,
+				DD80A39E2797083400A269F1 /* AnalitycsPageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDADFA5F27B904F7005D756A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD80A39A2796C59000A269F1 /* AnaliticsView.swift */,
+				DD80A3A02797087500A269F1 /* ContentAnaliticsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DDD757ED27B3B1EA00535389 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,8 +369,8 @@
 		DDE7C04A275F3C4B00282299 = {
 			isa = PBXGroup;
 			children = (
-				DDE7C055275F3C4B00282299 /* Finance */,
 				DD1F4CA027A40BED00833587 /* Other */,
+				DDE7C055275F3C4B00282299 /* Finance */,
 				DDE7C054275F3C4B00282299 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -318,21 +390,16 @@
 				DD2AD84127AAA9BF00416CFA /* DataBaseModels */,
 				DD1F4CA527A445F500833587 /* Helpers */,
 				DD6996B527650AA100144B4B /* Model */,
-				DD6996B627650ADB00144B4B /* Controller */,
-				DD6996B427650A8300144B4B /* View */,
-				DD6CD4B6276B89B1001BB53F /* Protocols */,
+				DD6996B827650B0600144B4B /* TransactionsScreen */,
+				DD6996B727650AEF00144B4B /* AddTransactionScreen */,
+				DD30EF0527902129005F32DB /* CategoriesScreen */,
+				DD30EF0627903779005F32DB /* AddCategoriesScreen */,
+				DD6996B927650B1E00144B4B /* AnalyticsScreen */,
 				DD6CD4B9276B8A1A001BB53F /* SupportFiles */,
+				DD6CD4B6276B89B1001BB53F /* Protocols */,
+				DDD757ED27B3B1EA00535389 /* TabBar */,
 			);
 			path = Finance;
-			sourceTree = "<group>";
-		};
-		DDE7C076275F408600282299 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				DDE7C077275F408600282299 /* UIView+Ext.swift */,
-				DDCF968B2794345100DE0FF6 /* Date+ ext.swift */,
-			);
-			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,21 +477,22 @@
 				DD509C31276DEDA800801DA7 /* CategoriesTableViewController.swift in Sources */,
 				DDC9ADCB27A81EE400B1F216 /* TransactionsByOneMonthHelper.swift in Sources */,
 				DD2AD84527AAAA5000416CFA /* CategoryEntity.swift in Sources */,
-				DDCF968C2794345100DE0FF6 /* Date+ ext.swift in Sources */,
+				DDCF968C2794345100DE0FF6 /* DateToString.swift in Sources */,
 				DD0B54C227A13E38001611F7 /* extension + Data Source.swift in Sources */,
 				DD988A2B27930E8F009BF522 /* DatesDictionary.swift in Sources */,
 				DDC9ADCD27A82DC400B1F216 /* AddCategoryButtonDelegate.swift in Sources */,
 				DD550E2E276F54D900CBEC51 /* CategoriesTableViewCell.swift in Sources */,
+				DD25DD0027B90C5E00C01768 /* AddTransactionViewController.swift in Sources */,
 				DDAFB25127B248130022BC26 /* DBModel.xcdatamodeld in Sources */,
 				DD24A94627AD5FB900C309E7 /* AddTransactionButtonDelegate.swift in Sources */,
 				DDE7C057275F3C4B00282299 /* AppDelegate.swift in Sources */,
 				DD6CD4AC2769F6A5001BB53F /* Category.swift in Sources */,
+				DD25DD0227B90CA600C01768 /* setHeaderForView.swift in Sources */,
 				DDD757EF27B3B21900535389 /* extension + TabBar.swift in Sources */,
 				DDAFB25327B2C2720022BC26 /* extension + TableViewDelegate, DataSource.swift in Sources */,
-				DDE7C078275F408600282299 /* UIView+Ext.swift in Sources */,
+				DDE7C078275F408600282299 /* setConstraintsForView.swift in Sources */,
 				DDC9ADC927A81D4E00B1F216 /* NamesOfMonths.swift in Sources */,
 				DDE7C08A275F453F00282299 /* Transaction.swift in Sources */,
-				DDE7C084275F453500282299 /* AddTransactionViewController.swift in Sources */,
 				DDE7C059275F3C4B00282299 /* SceneDelegate.swift in Sources */,
 				DD7423F12799A67B00780C31 /* AnaliticsByMonth.swift in Sources */,
 				DD80A39F2797083400A269F1 /* AnalitycsPageViewController.swift in Sources */,
