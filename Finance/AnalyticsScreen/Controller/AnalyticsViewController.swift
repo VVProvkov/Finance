@@ -23,7 +23,7 @@ class AnalyticsViewController: UIViewController, DidChangedTypeTrtansactionsDele
         self.analiticView.pin(to: self.view)
         self.analiticView.delegate = self
         addPageViewController()
-        
+        print("viewDidload")
         NotificationCenter.default.addObserver(forName: NSNotification.Name("addedNewTransaction"), object: nil, queue: nil) {
             (notification) in
             CoreDataManager.shared.getAllTransactions { [unowned self] transactions in
@@ -47,7 +47,7 @@ class AnalyticsViewController: UIViewController, DidChangedTypeTrtansactionsDele
         pageViewController.didMove(toParent: self)
         pageViewController.view.setHorizontalConstraintsTo(superView: analiticView, left: 0, right: 0)
         pageViewController.view.setVerticalConstraintsFrom(view: analiticView.typeTransactionsSegmentedControl, top: 5, bottom: nil)
-        pageViewController.view.setVerticalConstraintsTo(superView: analiticView, top: nil, bottom: 0)
+        pageViewController.view.setVerticalConstraintsTo(superView: analiticView, top: nil, bottom: 50)
     }
 
     func getTransactionsByType(type: TypeTransaction) -> [Transaction] {

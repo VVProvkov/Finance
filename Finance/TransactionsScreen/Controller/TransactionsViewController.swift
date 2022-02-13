@@ -38,7 +38,6 @@ class TransactionsViewController: UIViewController, AddTransactionToTransactions
                 self.transactions = transactions
             }
         }
-        
     }
     
     func tapButton(_ transaction: Transaction) {

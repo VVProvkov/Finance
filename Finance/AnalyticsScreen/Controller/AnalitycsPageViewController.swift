@@ -14,7 +14,8 @@ class AnalitycsPageViewController: UIPageViewController, UIPageViewControllerDel
             self.months = monthsFromTransactionsHelper.getMonthsFromTransactions(transactions: self.transactionsByType)
         }
     }
-    var pageControl = UIPageControl()
+    
+    var pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
     let transactionsByMonthHelper = TransactionsByOneMonthHelper()
     let monthsFromTransactionsHelper = MonthsFromDatesOfTransactionsHelper()
     lazy var arrayViewControllers = [ContentAnaliticsViewController]()
@@ -24,7 +25,10 @@ class AnalitycsPageViewController: UIPageViewController, UIPageViewControllerDel
         didSet {
             arrayViewControllers = []
             analiticsByMonths = []
+            self.months.sort(by: {$0.number > $1.number})
             for month in months {
+                print(month.name)
+                print(month.number)
                 let transactionsByMonth = transactionsByMonthHelper.getTransactionsBy(month: month, transactions: transactionsByType)
                 analiticsByMonths.append(AnaliticsByMonth(transactions: transactionsByMonth, month: month.name))
             }
@@ -49,21 +53,45 @@ class AnalitycsPageViewController: UIPageViewController, UIPageViewControllerDel
         self.view.backgroundColor = .systemGray6
         self.delegate = self
         self.dataSource = self
+        pageControl.currentPageIndicatorTintColor = .systemBlue
+        pageControl.hidesForSinglePage = true
+        print("viewDidLoad")
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+    }
     
+    override func loadView() {
+        super.loadView()
+        print("loadView")
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("viewWillDisappear")
+    }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        pageControl.subviews.forEach {
+            $0.transform = CGAffineTransform(scaleX: 4, y: 4)
+        }
+    }
+    
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        print("инициализация")
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? ContentAnaliticsViewController else { return nil }
@@ -86,13 +114,12 @@ class AnalitycsPageViewController: UIPageViewController, UIPageViewControllerDel
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return 0
+        return months.count == 1 ? 0 : months.count - 1
     }
-    
+
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return months.count
     }
-    
 }
     
 
